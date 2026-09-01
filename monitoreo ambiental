@@ -1,0 +1,3231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aira | Monitoreo Ambiental</title>
+
+    <style>
+
+        /* =====================================================
+           COLORES PRINCIPALES
+        ===================================================== */
+
+        :root {
+            --verde: #19c37d;
+            --verde-claro: #5ee7a5;
+            --verde-oscuro: #075e45;
+            --verde-profundo: #043c2d;
+
+            --azul: #2196f3;
+            --celeste: #38bdf8;
+
+            --blanco: #ffffff;
+            --fondo: #eef8f4;
+            --gris: #6b7c76;
+            --gris-claro: #dce9e3;
+
+            --rojo: #ef4444;
+            --amarillo: #f59e0b;
+
+            --sombra: 0 10px 30px rgba(4, 60, 45, .08);
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            background: var(--fondo);
+            color: #163d31;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           LOGIN
+        ===================================================== */
+
+        #loginPage {
+
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 10% 20%,
+                    rgba(94, 231, 165, .25),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(56, 189, 248, .25),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #032e22,
+                    #075e45,
+                    #0b8f6b
+                );
+        }
+
+
+        .decoracion {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.06);
+        }
+
+        .decoracion-1 {
+
+            width: 350px;
+            height: 350px;
+
+            top: -150px;
+            left: -100px;
+        }
+
+        .decoracion-2 {
+
+            width: 500px;
+            height: 500px;
+
+            right: -220px;
+            bottom: -250px;
+        }
+
+
+        /* =====================================================
+           TARJETA DE LOGIN
+        ===================================================== */
+
+        .login-box {
+
+            position: relative;
+            z-index: 5;
+
+            width: 430px;
+            max-width: 92%;
+
+            background: rgba(255,255,255,.97);
+
+            border-radius: 28px;
+
+            padding: 42px;
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.25);
+        }
+
+
+        /* LOGO AIRA */
+
+        .aira-logo {
+
+            width: 90px;
+            height: 90px;
+
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--verde),
+                    var(--celeste)
+                );
+
+            box-shadow:
+                0 15px 30px rgba(25,195,125,.3);
+
+            font-size: 48px;
+
+            color: white;
+        }
+
+
+        .logo-section {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .logo-section h1 {
+
+            margin-top: 15px;
+
+            font-size: 40px;
+
+            color: var(--verde-profundo);
+
+            letter-spacing: 1px;
+        }
+
+
+        .logo-section p {
+
+            color: var(--gris);
+
+            margin-top: 5px;
+
+            font-size: 14px;
+        }
+
+
+        .login-title {
+
+            margin-bottom: 20px;
+        }
+
+
+        .login-title h2 {
+
+            font-size: 22px;
+
+            color: #173f32;
+        }
+
+
+        .login-title p {
+
+            margin-top: 5px;
+
+            color: var(--gris);
+
+            font-size: 13px;
+        }
+
+
+        /* INPUTS */
+
+        .campo {
+
+            margin-bottom: 18px;
+        }
+
+
+        .campo label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .campo input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 1px solid var(--gris-claro);
+
+            border-radius: 12px;
+
+            background: #f8fcfa;
+
+            outline: none;
+
+            transition: .2s;
+        }
+
+
+        .campo input:focus {
+
+            border-color: var(--verde);
+
+            box-shadow:
+                0 0 0 4px rgba(25,195,125,.1);
+        }
+
+
+        /* BOTÓN LOGIN */
+
+        .btn-login {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--verde-oscuro),
+                    var(--verde)
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+
+        .btn-login:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px rgba(25,195,125,.25);
+        }
+
+
+        .error {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 11px;
+
+            border-radius: 10px;
+
+            background: #fee2e2;
+
+            color: #a11d1d;
+
+            text-align: center;
+
+            font-size: 13px;
+        }
+
+
+        .datos-demo {
+
+            margin-top: 20px;
+
+            padding: 13px;
+
+            border-radius: 12px;
+
+            background: #effaf5;
+
+            color: #54756a;
+
+            text-align: center;
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           APLICACIÓN
+        ===================================================== */
+
+        #app {
+
+            display: none;
+
+            min-height: 100vh;
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .sidebar {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 255px;
+            height: 100vh;
+
+            padding: 24px 15px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #043c2d,
+                    #075e45,
+                    #064a39
+                );
+
+            z-index: 20;
+        }
+
+
+        .marca {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 0 10px 28px;
+        }
+
+
+        .mini-logo {
+
+            width: 47px;
+            height: 47px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--verde),
+                    var(--celeste)
+                );
+
+            font-size: 25px;
+        }
+
+
+        .marca h2 {
+
+            font-size: 25px;
+        }
+
+
+        .marca small {
+
+            color: #a7d9ca;
+
+            font-size: 9px;
+
+            letter-spacing: .5px;
+        }
+
+
+        .menu-titulo {
+
+            padding: 15px 12px 8px;
+
+            color: #82c8b2;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+        }
+
+
+        .menu {
+
+            list-style: none;
+        }
+
+
+        .menu li {
+
+            margin: 5px 0;
+        }
+
+
+        .menu button {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+            background: transparent;
+
+            color: #d5eee5;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            transition: .2s;
+        }
+
+
+        .menu button:hover {
+
+            background: rgba(255,255,255,.08);
+
+            color: white;
+        }
+
+
+        .menu button.active {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(25,195,125,.95),
+                    rgba(25,195,125,.45)
+                );
+
+            color: white;
+
+            box-shadow:
+                0 6px 15px rgba(0,0,0,.1);
+        }
+
+
+        .icono-menu {
+
+            width: 25px;
+
+            text-align: center;
+
+            font-size: 18px;
+        }
+
+
+        /* CERRAR SESIÓN */
+
+        .logout {
+
+            position: absolute;
+
+            bottom: 22px;
+
+            left: 15px;
+            right: 15px;
+        }
+
+
+        .logout button {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border-radius: 11px;
+
+            border: 1px solid rgba(255,255,255,.12);
+
+            background: rgba(255,255,255,.07);
+
+            color: #ffdede;
+
+            cursor: pointer;
+        }
+
+
+        .logout button:hover {
+
+            background: rgba(239,68,68,.2);
+        }
+
+
+        /* =====================================================
+           CONTENIDO
+        ===================================================== */
+
+        .contenido {
+
+            margin-left: 255px;
+
+            padding: 28px;
+        }
+
+
+        /* =====================================================
+           BARRA SUPERIOR
+        ===================================================== */
+
+        .topbar {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+        }
+
+
+        .topbar h1 {
+
+            color: var(--verde-profundo);
+
+            font-size: 28px;
+        }
+
+
+        .topbar p {
+
+            color: var(--gris);
+
+            font-size: 13px;
+
+            margin-top: 4px;
+        }
+
+
+        .perfil {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            padding: 7px 15px 7px 7px;
+
+            background: white;
+
+            border-radius: 14px;
+
+            box-shadow: var(--sombra);
+        }
+
+
+        .avatar {
+
+            width: 43px;
+            height: 43px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--verde-oscuro),
+                    var(--verde)
+                );
+
+            color: white;
+
+            font-weight: bold;
+        }
+
+
+        .perfil strong {
+
+            display: block;
+
+            font-size: 13px;
+        }
+
+
+        .perfil span {
+
+            display: block;
+
+            margin-top: 2px;
+
+            color: var(--gris);
+
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           SECCIONES
+        ===================================================== */
+
+        .seccion {
+
+            display: none;
+        }
+
+
+        .seccion.active {
+
+            display: block;
+
+            animation: aparecer .25s ease;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(7px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+           BIENVENIDA
+        ===================================================== */
+
+        .bienvenida {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+            border-radius: 19px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #075e45,
+                    #10a879,
+                    #159bb7
+                );
+        }
+
+
+        .bienvenida::after {
+
+            content: "🌎";
+
+            position: absolute;
+
+            right: 30px;
+            top: 3px;
+
+            font-size: 100px;
+
+            opacity: .12;
+        }
+
+
+        .bienvenida h2 {
+
+            font-size: 22px;
+        }
+
+
+        .bienvenida p {
+
+            margin-top: 6px;
+
+            color: #dcfff1;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           TARJETAS
+        ===================================================== */
+
+        .tarjetas {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 17px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .tarjeta {
+
+            background: white;
+
+            padding: 20px;
+
+            border-radius: 18px;
+
+            border: 1px solid #e0ece7;
+
+            box-shadow: var(--sombra);
+        }
+
+
+        .tarjeta-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .tarjeta h3 {
+
+            color: #71827c;
+
+            font-size: 12px;
+        }
+
+
+        .valor {
+
+            margin-top: 8px;
+
+            font-size: 30px;
+
+            font-weight: 750;
+
+            color: #153f32;
+        }
+
+
+        .valor small {
+
+            color: #7c908a;
+
+            font-size: 13px;
+        }
+
+
+        .tarjeta-icono {
+
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 13px;
+
+            font-size: 22px;
+        }
+
+
+        .temperatura {
+            background: #fff1df;
+        }
+
+        .humedad {
+            background: #e4f4ff;
+        }
+
+        .aire {
+            background: #e4f8ef;
+        }
+
+        .agua {
+            background: #e6f2ff;
+        }
+
+
+        .estado {
+
+            margin-top: 7px;
+
+            color: #15946b;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           PANELES
+        ===================================================== */
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr;
+
+            gap: 20px;
+        }
+
+
+        .panel {
+
+            background: white;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            border: 1px solid #e0ece7;
+
+            box-shadow: var(--sombra);
+
+            margin-bottom: 20px;
+        }
+
+
+        .panel-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 18px;
+        }
+
+
+        .panel-header h2 {
+
+            font-size: 17px;
+
+            color: #194d3d;
+        }
+
+
+        .panel-header span {
+
+            color: #8ca19a;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           GRÁFICO
+        ===================================================== */
+
+        .grafico {
+
+            height: 260px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            gap: 13px;
+
+            padding: 20px 10px 0;
+
+            border-bottom: 1px solid #dce9e3;
+        }
+
+
+        .barra-contenedor {
+
+            flex: 1;
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: center;
+        }
+
+
+        .barra {
+
+            width: 65%;
+
+            border-radius: 8px 8px 0 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    #087f5b,
+                    #43db9c
+                );
+
+            position: relative;
+
+            transition: .4s;
+        }
+
+
+        .barra:hover {
+
+            transform: translateY(-4px);
+
+            filter: brightness(1.05);
+        }
+
+
+        .barra span {
+
+            position: absolute;
+
+            top: -20px;
+
+            width: 100%;
+
+            text-align: center;
+
+            font-size: 10px;
+
+            color: #71827c;
+        }
+
+
+        .hora {
+
+            position: absolute;
+
+            bottom: -20px;
+
+            width: 100%;
+
+            text-align: center;
+
+            font-size: 9px;
+
+            color: #879992;
+        }
+
+
+        /* =====================================================
+           ESTADO
+        ===================================================== */
+
+        .estado-sistema {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 13px;
+
+            border-radius: 12px;
+
+            background: #f0faf5;
+
+            margin-bottom: 10px;
+        }
+
+
+        .circulo {
+
+            width: 37px;
+            height: 37px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #d8f6e6;
+
+            color: #087f5b;
+        }
+
+
+        .estado-sistema strong {
+
+            display: block;
+
+            font-size: 12px;
+        }
+
+
+        .estado-sistema p {
+
+            margin-top: 2px;
+
+            color: #78918a;
+
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           ALERTAS
+        ===================================================== */
+
+        .alerta {
+
+            display: flex;
+
+            gap: 12px;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .alerta strong {
+
+            display: block;
+
+            font-size: 13px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .alerta p {
+
+            font-size: 11px;
+        }
+
+
+        .alerta.warning {
+
+            background: #fff8e6;
+
+            color: #866300;
+
+            border: 1px solid #f4dda0;
+        }
+
+
+        .alerta.danger {
+
+            background: #fff0f0;
+
+            color: #a62828;
+
+            border: 1px solid #f0c4c4;
+        }
+
+
+        .alerta.success {
+
+            background: #edfbf4;
+
+            color: #18734f;
+
+            border: 1px solid #c9efdc;
+        }
+
+
+        /* =====================================================
+           TABLAS
+        ===================================================== */
+
+        .tabla-contenedor {
+
+            overflow-x: auto;
+        }
+
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+        }
+
+
+        th {
+
+            padding: 13px;
+
+            text-align: left;
+
+            background: #eff8f4;
+
+            color: #55766c;
+
+            font-size: 11px;
+        }
+
+
+        td {
+
+            padding: 14px 13px;
+
+            border-bottom: 1px solid #edf2ef;
+
+            font-size: 12px;
+        }
+
+
+        tr:hover td {
+
+            background: #fafdfb;
+        }
+
+
+        .badge {
+
+            padding: 5px 9px;
+
+            border-radius: 20px;
+
+            font-size: 9px;
+
+            font-weight: bold;
+        }
+
+
+        .online {
+
+            color: #087f5b;
+
+            background: #dcf8e9;
+        }
+
+
+        .offline {
+
+            color: #b42323;
+
+            background: #ffe2e2;
+        }
+
+
+        /* =====================================================
+           CONFIGURACIÓN
+        ===================================================== */
+
+        .config-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 25px;
+        }
+
+
+        .config-item {
+
+            margin-bottom: 17px;
+        }
+
+
+        .config-item label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+
+        .config-item input,
+        .config-item select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid var(--gris-claro);
+
+            border-radius: 10px;
+
+            outline: none;
+        }
+
+
+        .btn-guardar {
+
+            padding: 12px 20px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: var(--verde-oscuro);
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .btn-guardar:hover {
+
+            background: var(--verde-profundo);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width:1100px) {
+
+            .tarjetas {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .grid {
+
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media(max-width:750px) {
+
+            .sidebar {
+
+                width: 70px;
+
+                padding: 20px 8px;
+            }
+
+
+            .marca {
+
+                justify-content: center;
+
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+
+            .marca h2,
+            .marca small,
+            .menu-titulo,
+            .menu button span,
+            .logout span {
+
+                display: none;
+            }
+
+
+            .menu button {
+
+                justify-content: center;
+            }
+
+
+            .contenido {
+
+                margin-left: 70px;
+
+                padding: 18px;
+            }
+
+
+            .topbar h1 {
+
+                font-size: 21px;
+            }
+
+
+            .perfil div {
+
+                display: none;
+            }
+
+
+            .perfil {
+
+                padding: 6px;
+            }
+
+
+            .tarjetas {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .config-grid {
+
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media(max-width:500px) {
+
+            .login-box {
+
+                padding: 30px 22px;
+            }
+
+
+            .logo-section h1 {
+
+                font-size: 34px;
+            }
+
+
+            .bienvenida::after {
+
+                display: none;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     LOGIN DE AIRA
+========================================================= -->
+
+<div id="loginPage">
+
+    <div class="decoracion decoracion-1"></div>
+    <div class="decoracion decoracion-2"></div>
+
+
+    <div class="login-box">
+
+
+        <!-- LOGO -->
+
+        <div class="logo-section">
+
+            <div class="aira-logo">
+                🌱
+            </div>
+
+            <h1>
+                Aira
+            </h1>
+
+            <p>
+                Monitoreo Ambiental Inteligente
+            </p>
+
+        </div>
+
+
+        <!-- FORMULARIO -->
+
+        <div class="login-title">
+
+            <h2>
+                Iniciar sesión
+            </h2>
+
+            <p>
+                Accedé al panel de control de Aira.
+            </p>
+
+        </div>
+
+
+        <form onsubmit="iniciarSesion(event)">
+
+
+            <div class="campo">
+
+                <label>
+                    Usuario
+                </label>
+
+                <input
+                    type="text"
+                    id="usuario"
+                    placeholder="valentinortega"
+                    required
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>
+                    Contraseña
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Ingrese su contraseña"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn-login"
+            >
+                🌱 Entrar a Aira
+            </button>
+
+
+            <div
+                class="error"
+                id="errorLogin"
+            >
+                ❌ Usuario o contraseña incorrectos.
+            </div>
+
+        </form>
+
+
+        <div class="datos-demo">
+
+            Usuario:
+            <b>valentinortega</b>
+
+            <br>
+
+            Contraseña:
+            <b>3459</b>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     APLICACIÓN AIRA
+========================================================= -->
+
+<div id="app">
+
+
+    <!-- =====================================================
+         MENÚ
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="marca">
+
+            <div class="mini-logo">
+                🌱
+            </div>
+
+            <div>
+
+                <h2>
+                    Aira
+                </h2>
+
+                <small>
+                    MONITOREO AMBIENTAL
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="menu-titulo">
+            Principal
+        </div>
+
+
+        <ul class="menu">
+
+
+            <li>
+
+                <button
+                    class="active"
+                    onclick="cambiarSeccion('dashboard', this)"
+                >
+
+                    <span class="icono-menu">
+                        📊
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </button>
+
+            </li>
+
+
+            <li>
+
+                <button
+                    onclick="cambiarSeccion('sensores', this)"
+                >
+
+                    <span class="icono-menu">
+                        📡
+                    </span>
+
+                    <span>
+                        Sensores
+                    </span>
+
+                </button>
+
+            </li>
+
+
+            <li>
+
+                <button
+                    onclick="cambiarSeccion('alertas', this)"
+                >
+
+                    <span class="icono-menu">
+                        ⚠️
+                    </span>
+
+                    <span>
+                        Alertas
+                    </span>
+
+                </button>
+
+            </li>
+
+
+            <li>
+
+                <button
+                    onclick="cambiarSeccion('historial', this)"
+                >
+
+                    <span class="icono-menu">
+                        📋
+                    </span>
+
+                    <span>
+                        Historial
+                    </span>
+
+                </button>
+
+            </li>
+
+        </ul>
+
+
+        <div class="menu-titulo">
+            Administración
+        </div>
+
+
+        <ul class="menu">
+
+            <li>
+
+                <button
+                    onclick="cambiarSeccion('configuracion', this)"
+                >
+
+                    <span class="icono-menu">
+                        ⚙️
+                    </span>
+
+                    <span>
+                        Configuración
+                    </span>
+
+                </button>
+
+            </li>
+
+        </ul>
+
+
+        <div class="logout">
+
+            <button onclick="cerrarSesion()">
+
+                🚪
+
+                <span>
+                    Cerrar sesión
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         CONTENIDO
+    ====================================================== -->
+
+    <main class="contenido">
+
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h1 id="titulo">
+                    Dashboard de Aira
+                </h1>
+
+                <p id="subtitulo">
+                    Monitoreo ambiental en tiempo real
+                </p>
+
+            </div>
+
+
+            <div class="perfil">
+
+                <div class="avatar">
+                    VO
+                </div>
+
+                <div>
+
+                    <strong>
+                        Valentin Ortega
+                    </strong>
+
+                    <span>
+                        Administrador
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section
+            id="dashboard"
+            class="seccion active"
+        >
+
+
+            <div class="bienvenida">
+
+                <h2>
+                    ¡Bienvenido a Aira, Valentin! 👋
+                </h2>
+
+                <p>
+                    El sistema está monitoreando las condiciones
+                    ambientales de manera continua.
+                </p>
+
+            </div>
+
+
+            <!-- TARJETAS -->
+
+            <div class="tarjetas">
+
+
+                <div class="tarjeta">
+
+                    <div class="tarjeta-top">
+
+                        <div>
+
+                            <h3>
+                                Temperatura
+                            </h3>
+
+                            <div class="valor">
+
+                                <span id="temperatura">
+                                    24.5
+                                </span>
+
+                                <small>
+                                    °C
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tarjeta-icono temperatura">
+                            🌡️
+                        </div>
+
+                    </div>
+
+                    <div class="estado">
+                        ● Normal
+                    </div>
+
+                </div>
+
+
+
+                <div class="tarjeta">
+
+                    <div class="tarjeta-top">
+
+                        <div>
+
+                            <h3>
+                                Humedad
+                            </h3>
+
+                            <div class="valor">
+
+                                <span id="humedad">
+                                    61
+                                </span>
+
+                                <small>
+                                    %
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tarjeta-icono humedad">
+                            💧
+                        </div>
+
+                    </div>
+
+                    <div class="estado">
+                        ● Nivel adecuado
+                    </div>
+
+                </div>
+
+
+
+                <div class="tarjeta">
+
+                    <div class="tarjeta-top">
+
+                        <div>
+
+                            <h3>
+                                Calidad del aire
+                            </h3>
+
+                            <div class="valor">
+
+                                <span id="aire">
+                                    42
+                                </span>
+
+                                <small>
+                                    AQI
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tarjeta-icono aire">
+                            🌬️
+                        </div>
+
+                    </div>
+
+                    <div class="estado">
+                        ● Calidad buena
+                    </div>
+
+                </div>
+
+
+
+                <div class="tarjeta">
+
+                    <div class="tarjeta-top">
+
+                        <div>
+
+                            <h3>
+                                Nivel de agua
+                            </h3>
+
+                            <div class="valor">
+
+                                <span id="agua">
+                                    72
+                                </span>
+
+                                <small>
+                                    %
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="tarjeta-icono agua">
+                            🌊
+                        </div>
+
+                    </div>
+
+                    <div class="estado">
+                        ● Estable
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GRÁFICO + ESTADO -->
+
+            <div class="grid">
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            Temperatura del día
+                        </h2>
+
+                        <span>
+                            Aira Analytics
+                        </span>
+
+                    </div>
+
+
+                    <div class="grafico">
+
+
+                        <div class="barra-contenedor">
+
+                            <div
+                                class="barra"
+                                style="height:35%"
+                            >
+
+                                <span>
+                                    18°
+                                </span>
+
+                                <div class="hora">
+                                    07h
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="barra-contenedor">
+
+                            <div
+                                class="barra"
+                                style="height:45%"
+                            >
+
+                                <span>
+                                    20°
+                                </span>
+
+                                <div class="hora">
+                                    08h
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="barra-contenedor">
+
+                            <div
+                                class="barra"
+                                style="height:55%"
+                            >
+
+                                <span>
+                                    22°
+                                </span>
+
+                                <div class="hora">
+                                    10h
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="barra-contenedor">
+
+                            <div
+                                class="barra"
+                                style="height:67%"
+                            >
+
+                                <span>
+                                    24°
+                                </span>
+
+                                <div class="hora">
+                                    11h
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="barra-contenedor">
+
+                            <div
+                                class="barra"
+                                style="height:78%"
+                            >
+
+                                <span>
+                                    26°
+                                </span>
+
+                                <div class="hora">
+                                    12h
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="barra-contenedor">
+
+                            <div
+                                class="barra"
+                                style="height:84%"
+                            >
+
+                                <span>
+                                    27°
+                                </span>
+
+                                <div class="hora">
+                                    13h
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="barra-contenedor">
+
+                            <div
+                                class="barra"
+                                style="height:76%"
+                            >
+
+                                <span>
+                                    25°
+                                </span>
+
+                                <div class="hora">
+                                    14h
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <h2>
+                            Estado de Aira
+                        </h2>
+
+                        <span>
+                            En vivo
+                        </span>
+
+                    </div>
+
+
+                    <div class="estado-sistema">
+
+                        <div class="circulo">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Sistema activo
+                            </strong>
+
+                            <p>
+                                Funcionamiento normal
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="estado-sistema">
+
+                        <div class="circulo">
+                            📡
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                8 sensores conectados
+                            </strong>
+
+                            <p>
+                                Comunicación estable
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="estado-sistema">
+
+                        <div class="circulo">
+                            🛡️
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Monitoreo protegido
+                            </strong>
+
+                            <p>
+                                Datos actualizados
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ALERTAS -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Alertas recientes
+                    </h2>
+
+                    <span>
+                        Aira Monitor
+                    </span>
+
+                </div>
+
+
+                <div class="alerta warning">
+
+                    <div>
+                        ⚠️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Humedad elevada
+                        </strong>
+
+                        <p>
+                            Se registró un nivel de humedad
+                            del 78% en Zona Norte.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="alerta danger">
+
+                    <div>
+                        🚨
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Ruido ambiental elevado
+                        </strong>
+
+                        <p>
+                            Se detectaron 82 dB en la Zona Urbana.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="alerta success">
+
+                    <div>
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Calidad del aire normal
+                        </strong>
+
+                        <p>
+                            El índice AQI se encuentra
+                            dentro del rango adecuado.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SENSORES
+        ================================================== -->
+
+        <section
+            id="sensores"
+            class="seccion"
+        >
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        📡 Sensores de Aira
+                    </h2>
+
+                    <span>
+                        Dispositivos registrados
+                    </span>
+
+                </div>
+
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    ID
+                                </th>
+
+                                <th>
+                                    Sensor
+                                </th>
+
+                                <th>
+                                    Ubicación
+                                </th>
+
+                                <th>
+                                    Medición
+                                </th>
+
+                                <th>
+                                    Estado
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <tr>
+
+                                <td>
+                                    SEN-001
+                                </td>
+
+                                <td>
+                                    🌡️ Temperatura
+                                </td>
+
+                                <td>
+                                    Zona Norte
+                                </td>
+
+                                <td>
+                                    24.5 °C
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    SEN-002
+                                </td>
+
+                                <td>
+                                    💧 Humedad
+                                </td>
+
+                                <td>
+                                    Zona Norte
+                                </td>
+
+                                <td>
+                                    61 %
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    SEN-003
+                                </td>
+
+                                <td>
+                                    🌬️ Calidad del aire
+                                </td>
+
+                                <td>
+                                    Zona Industrial
+                                </td>
+
+                                <td>
+                                    42 AQI
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    SEN-004
+                                </td>
+
+                                <td>
+                                    🌊 Nivel de agua
+                                </td>
+
+                                <td>
+                                    Río Principal
+                                </td>
+
+                                <td>
+                                    72 %
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    SEN-005
+                                </td>
+
+                                <td>
+                                    🔊 Ruido ambiental
+                                </td>
+
+                                <td>
+                                    Zona Urbana
+                                </td>
+
+                                <td>
+                                    58 dB
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    SEN-006
+                                </td>
+
+                                <td>
+                                    ☀️ Radiación solar
+                                </td>
+
+                                <td>
+                                    Zona Sur
+                                </td>
+
+                                <td>
+                                    640 W/m²
+                                </td>
+
+                                <td>
+                                    <span class="badge online">
+                                        ONLINE
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ALERTAS
+        ================================================== -->
+
+        <section
+            id="alertas"
+            class="seccion"
+        >
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        ⚠️ Centro de alertas Aira
+                    </h2>
+
+                    <span>
+                        Monitoreo ambiental
+                    </span>
+
+                </div>
+
+
+                <div class="alerta danger">
+
+                    🚨
+
+                    <div>
+
+                        <strong>
+                            Ruido ambiental elevado
+                        </strong>
+
+                        <p>
+                            El sensor SEN-005 registró
+                            82 dB en Zona Urbana.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="alerta warning">
+
+                    ⚠️
+
+                    <div>
+
+                        <strong>
+                            Humedad elevada
+                        </strong>
+
+                        <p>
+                            El sensor SEN-002 registró
+                            una humedad del 78%.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="alerta success">
+
+                    ✓
+
+                    <div>
+
+                        <strong>
+                            Calidad del aire normal
+                        </strong>
+
+                        <p>
+                            El índice AQI se encuentra
+                            dentro de valores adecuados.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             HISTORIAL
+        ================================================== -->
+
+        <section
+            id="historial"
+            class="seccion"
+        >
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        📋 Historial de Aira
+                    </h2>
+
+                    <span>
+                        Registro de mediciones
+                    </span>
+
+                </div>
+
+
+                <div class="tabla-contenedor">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Fecha
+                                </th>
+
+                                <th>
+                                    Hora
+                                </th>
+
+                                <th>
+                                    Temperatura
+                                </th>
+
+                                <th>
+                                    Humedad
+                                </th>
+
+                                <th>
+                                    Aire
+                                </th>
+
+                                <th>
+                                    Agua
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <tr>
+
+                                <td>
+                                    01/09/2026
+                                </td>
+
+                                <td>
+                                    14:30
+                                </td>
+
+                                <td>
+                                    24.5 °C
+                                </td>
+
+                                <td>
+                                    61 %
+                                </td>
+
+                                <td>
+                                    42 AQI
+                                </td>
+
+                                <td>
+                                    72 %
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    01/09/2026
+                                </td>
+
+                                <td>
+                                    14:00
+                                </td>
+
+                                <td>
+                                    24.1 °C
+                                </td>
+
+                                <td>
+                                    60 %
+                                </td>
+
+                                <td>
+                                    44 AQI
+                                </td>
+
+                                <td>
+                                    71 %
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    01/09/2026
+                                </td>
+
+                                <td>
+                                    13:30
+                                </td>
+
+                                <td>
+                                    23.8 °C
+                                </td>
+
+                                <td>
+                                    59 %
+                                </td>
+
+                                <td>
+                                    46 AQI
+                                </td>
+
+                                <td>
+                                    70 %
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    01/09/2026
+                                </td>
+
+                                <td>
+                                    13:00
+                                </td>
+
+                                <td>
+                                    23.4 °C
+                                </td>
+
+                                <td>
+                                    57 %
+                                </td>
+
+                                <td>
+                                    48 AQI
+                                </td>
+
+                                <td>
+                                    70 %
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONFIGURACIÓN
+        ================================================== -->
+
+        <section
+            id="configuracion"
+            class="seccion"
+        >
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        ⚙️ Configuración de Aira
+                    </h2>
+
+                    <span>
+                        Perfil del administrador
+                    </span>
+
+                </div>
+
+
+                <div class="config-grid">
+
+
+                    <div>
+
+
+                        <div class="config-item">
+
+                            <label>
+                                Nombre del sistema
+                            </label>
+
+                            <input
+                                type="text"
+                                value="Aira"
+                            >
+
+                        </div>
+
+
+                        <div class="config-item">
+
+                            <label>
+                                Nombre del administrador
+                            </label>
+
+                            <input
+                                type="text"
+                                value="Valentin Ortega"
+                            >
+
+                        </div>
+
+
+                        <div class="config-item">
+
+                            <label>
+                                Usuario
+                            </label>
+
+                            <input
+                                type="text"
+                                value="valentinortega"
+                                readonly
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div>
+
+
+                        <div class="config-item">
+
+                            <label>
+                                Gmail de contacto
+                            </label>
+
+                            <input
+                                type="email"
+                                value="valentinortega@gmail.com"
+                            >
+
+                        </div>
+
+
+                        <div class="config-item">
+
+                            <label>
+                                Intervalo de actualización
+                            </label>
+
+                            <select>
+
+                                <option>
+                                    5 segundos
+                                </option>
+
+                                <option>
+                                    10 segundos
+                                </option>
+
+                                <option>
+                                    30 segundos
+                                </option>
+
+                                <option>
+                                    1 minuto
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="config-item">
+
+                            <label>
+                                Temperatura máxima permitida
+                            </label>
+
+                            <input
+                                type="number"
+                                value="35"
+                            >
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="btn-guardar"
+                    onclick="guardarConfiguracion()"
+                >
+                    💾 Guardar cambios
+                </button>
+
+            </div>
+
+
+            <!-- PERFIL -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <h2>
+                        👤 Información del administrador
+                    </h2>
+
+                </div>
+
+
+                <p style="margin-bottom:10px;">
+                    <b>Nombre:</b>
+                    Valentin Ortega
+                </p>
+
+
+                <p style="margin-bottom:10px;">
+                    <b>Usuario:</b>
+                    valentinortega
+                </p>
+
+
+                <p style="margin-bottom:10px;">
+                    <b>Gmail:</b>
+                    valentinortega@gmail.com
+                </p>
+
+
+                <p>
+                    <b>Rol:</b>
+                    Administrador de Aira
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+    /* =====================================================
+       CREDENCIALES DEL SISTEMA AIRA
+    ===================================================== */
+
+    const USUARIO = "valentinortega";
+
+    const CONTRASENA = "3459";
+
+
+    /* =====================================================
+       INICIAR SESIÓN
+    ===================================================== */
+
+    function iniciarSesion(event) {
+
+        event.preventDefault();
+
+
+        const usuarioIngresado =
+            document.getElementById("usuario").value.trim();
+
+
+        const passwordIngresada =
+            document.getElementById("password").value;
+
+
+        const error =
+            document.getElementById("errorLogin");
+
+
+        if (
+            usuarioIngresado === USUARIO &&
+            passwordIngresada === CONTRASENA
+        ) {
+
+
+            document.getElementById("loginPage")
+                .style.display = "none";
+
+
+            document.getElementById("app")
+                .style.display = "block";
+
+
+            error.style.display = "none";
+
+
+        } else {
+
+
+            error.style.display = "block";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CERRAR SESIÓN
+    ===================================================== */
+
+    function cerrarSesion() {
+
+        document.getElementById("app")
+            .style.display = "none";
+
+
+        document.getElementById("loginPage")
+            .style.display = "flex";
+
+
+        document.getElementById("usuario")
+            .value = "";
+
+
+        document.getElementById("password")
+            .value = "";
+
+    }
+
+
+    /* =====================================================
+       CAMBIAR DE SECCIÓN
+    ===================================================== */
+
+    function cambiarSeccion(nombre, boton) {
+
+
+        const secciones =
+            document.querySelectorAll(".seccion");
+
+
+        secciones.forEach(function(seccion) {
+
+            seccion.classList.remove("active");
+
+        });
+
+
+        document
+            .getElementById(nombre)
+            .classList.add("active");
+
+
+        const botones =
+            document.querySelectorAll(".menu button");
+
+
+        botones.forEach(function(btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        boton.classList.add("active");
+
+
+        const informacion = {
+
+            dashboard: [
+                "Dashboard de Aira",
+                "Monitoreo ambiental en tiempo real"
+            ],
+
+            sensores: [
+                "Sensores de Aira",
+                "Control de dispositivos ambientales"
+            ],
+
+            alertas: [
+                "Alertas Ambientales",
+                "Eventos que requieren atención"
+            ],
+
+            historial: [
+                "Historial de Aira",
+                "Registro de mediciones ambientales"
+            ],
+
+            configuracion: [
+                "Configuración de Aira",
+                "Administración del sistema"
+            ]
+
+        };
+
+
+        document.getElementById("titulo")
+            .textContent = informacion[nombre][0];
+
+
+        document.getElementById("subtitulo")
+            .textContent = informacion[nombre][1];
+
+    }
+
+
+    /* =====================================================
+       DATOS SIMULADOS
+    ===================================================== */
+
+    function actualizarDatos() {
+
+
+        const temperatura =
+            (22 + Math.random() * 5).toFixed(1);
+
+
+        const humedad =
+            Math.floor(55 + Math.random() * 15);
+
+
+        const aire =
+            Math.floor(30 + Math.random() * 30);
+
+
+        const agua =
+            Math.floor(68 + Math.random() * 10);
+
+
+        document.getElementById("temperatura")
+            .textContent = temperatura;
+
+
+        document.getElementById("humedad")
+            .textContent = humedad;
+
+
+        document.getElementById("aire")
+            .textContent = aire;
+
+
+        document.getElementById("agua")
+            .textContent = agua;
+
+    }
+
+
+    /* Actualización cada 5 segundos */
+
+    setInterval(
+        actualizarDatos,
+        5000
+    );
+
+
+    /* =====================================================
+       GUARDAR CONFIGURACIÓN
+    ===================================================== */
+
+    function guardarConfiguracion() {
+
+        alert(
+            "✅ Configuración de Aira guardada correctamente."
+        );
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
