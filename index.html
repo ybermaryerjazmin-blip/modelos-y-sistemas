@@ -6,15 +6,11 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <title>AIRA - Monitoreo Ambiental</title>
 
 <style>
-
-/* ==================================================
-   GENERAL
-================================================== */
 
 * {
     box-sizing: border-box;
@@ -28,42 +24,37 @@ body {
     color: #173b2b;
 }
 
-.pantalla {
-    min-height: 100vh;
-}
-
 .oculto {
     display: none !important;
 }
 
 
-/* ==================================================
+/* =========================
    INICIO
-================================================== */
+========================= */
 
 #inicio {
+    min-height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    min-height: 100vh;
+    padding: 20px;
 
-    background:
-    linear-gradient(
+    background: linear-gradient(
         135deg,
         #0b3d2e,
         #2e7d32,
         #81c784
     );
-
-    padding: 20px;
 }
 
 .caja-inicio {
-    background: white;
-
     width: 100%;
     max-width: 450px;
+
+    background: white;
 
     padding: 35px;
 
@@ -74,11 +65,6 @@ body {
     box-shadow:
     0 10px 30px rgba(0,0,0,0.3);
 }
-
-
-/* ==================================================
-   LOGO
-================================================== */
 
 .logo {
     width: 110px;
@@ -91,14 +77,12 @@ body {
     background: #2e7d32;
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
     color: white;
 
     font-size: 50px;
-
     font-weight: bold;
 
     border: 7px solid #a5d6a7;
@@ -119,9 +103,9 @@ body {
 }
 
 
-/* ==================================================
+/* =========================
    CAMPOS
-================================================== */
+========================= */
 
 input {
     width: 100%;
@@ -149,20 +133,17 @@ input {
     position: absolute;
 
     right: 14px;
-
     top: 18px;
 
     cursor: pointer;
 
     font-size: 20px;
-
-    user-select: none;
 }
 
 
-/* ==================================================
+/* =========================
    BOTONES
-================================================== */
+========================= */
 
 button {
     width: 100%;
@@ -190,7 +171,6 @@ button:hover {
 
 .boton-secundario {
     background: #a5d6a7;
-
     color: #173b2b;
 }
 
@@ -215,9 +195,9 @@ button:hover {
 }
 
 
-/* ==================================================
+/* =========================
    MENSAJES
-================================================== */
+========================= */
 
 .mensaje {
     margin-top: 15px;
@@ -238,9 +218,9 @@ button:hover {
 }
 
 
-/* ==================================================
+/* =========================
    SISTEMA
-================================================== */
+========================= */
 
 #sistema {
     min-height: 100vh;
@@ -249,9 +229,9 @@ button:hover {
 }
 
 
-/* ==================================================
+/* =========================
    HEADER
-================================================== */
+========================= */
 
 header {
     background: #1b5e20;
@@ -269,13 +249,11 @@ header {
 
 .logo-header {
     font-size: 28px;
-
     font-weight: bold;
 }
 
 .usuario-header {
     font-size: 14px;
-
     margin-top: 5px;
 }
 
@@ -288,9 +266,9 @@ header {
 }
 
 
-/* ==================================================
+/* =========================
    MENU
-================================================== */
+========================= */
 
 nav {
     background: #2e7d32;
@@ -319,9 +297,9 @@ nav button:hover {
 }
 
 
-/* ==================================================
+/* =========================
    CONTENIDO
-================================================== */
+========================= */
 
 main {
     max-width: 1200px;
@@ -354,9 +332,9 @@ main {
 }
 
 
-/* ==================================================
+/* =========================
    TARJETAS
-================================================== */
+========================= */
 
 .tarjetas {
     display: grid;
@@ -408,9 +386,9 @@ main {
 }
 
 
-/* ==================================================
+/* =========================
    UBICACION
-================================================== */
+========================= */
 
 .ubicacion {
     background: #c8e6c9;
@@ -422,58 +400,31 @@ main {
     margin-top: 20px;
 }
 
-.ubicacion h3 {
-    margin-bottom: 10px;
+
+/* =========================
+   ESTADO CLIMA
+========================= */
+
+.estado-clima {
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #e8f5e9;
+
+    color: #1b5e20;
+
+    font-size: 18px;
+
+    font-weight: bold;
 }
 
 
-/* ==================================================
-   BARRAS
-================================================== */
-
-.barra {
-    width: 100%;
-
-    height: 20px;
-
-    background: #ddd;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    margin-top: 10px;
-}
-
-.progreso {
-    height: 100%;
-
-    width: 70%;
-
-    background: #43a047;
-}
-
-
-/* ==================================================
-   ALERTAS
-================================================== */
-
-.alerta {
-    margin-top: 20px;
-
-    padding: 18px;
-
-    border-radius: 15px;
-
-    background: #fff3cd;
-
-    color: #795548;
-}
-
-
-/* ==================================================
+/* =========================
    PRONOSTICO
-================================================== */
+========================= */
 
 #pronostico {
     display: grid;
@@ -534,16 +485,12 @@ main {
     color: #1565c0;
 
     margin-top: 8px;
-
-    font-size: 14px;
 }
 
-.viento-pronostico {
+.viento {
     color: #555;
 
     margin-top: 7px;
-
-    font-size: 14px;
 }
 
 .cargando {
@@ -554,45 +501,56 @@ main {
     color: #2e7d32;
 }
 
-.error-clima {
-    background: #ffebee;
 
-    color: #b71c1c;
+/* =========================
+   BARRA
+========================= */
 
-    padding: 15px;
+.barra {
+    width: 100%;
 
-    border-radius: 10px;
+    height: 20px;
+
+    background: #ddd;
+
+    border-radius: 20px;
+
+    overflow: hidden;
 
     margin-top: 10px;
 }
 
+.progreso {
+    height: 100%;
 
-/* ==================================================
-   ESTADO DEL CLIMA
-================================================== */
+    width: 50%;
 
-.estado-clima {
-    margin-top: 15px;
-
-    padding: 15px;
-
-    border-radius: 12px;
-
-    background: #e8f5e9;
-
-    color: #1b5e20;
-
-    font-size: 18px;
-
-    font-weight: bold;
+    background: #43a047;
 }
 
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
+/* =========================
+   ALERTAS
+========================= */
 
-@media(max-width: 600px) {
+.alerta {
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background: #fff3cd;
+
+    color: #795548;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:600px) {
 
     header {
         flex-direction: column;
@@ -620,12 +578,6 @@ main {
         font-size: 38px;
     }
 
-    nav button {
-        font-size: 14px;
-
-        padding: 9px 12px;
-    }
-
 }
 
 </style>
@@ -636,2234 +588,1976 @@ main {
 <body>
 
 
-<!-- ==================================================
-     INICIO / LOGIN
-================================================== -->
+<!-- =========================
+     LOGIN
+========================= -->
 
-<section id="inicio"
-         class="pantalla">
+<section id="inicio">
 
-    <div class="caja-inicio">
+<div class="caja-inicio">
 
+<div class="logo">
+A
+</div>
 
-        <div class="logo">
-            A
-        </div>
+<h1 class="titulo">
+AIRA
+</h1>
 
+<p class="subtitulo">
+Sistema de Monitoreo Ambiental 🌱
+</p>
 
-        <h1 class="titulo">
-            AIRA
-        </h1>
 
+<!-- LOGIN -->
 
-        <p class="subtitulo">
-            Sistema de Monitoreo Ambiental 🌱
-        </p>
+<div id="login">
 
+<input
+type="text"
+id="usuarioLogin"
+placeholder="Nombre de usuario">
 
-        <!-- LOGIN -->
+<div class="campo">
 
-        <div id="login">
+<input
+type="password"
+id="passwordLogin"
+placeholder="Contraseña">
 
-            <input
-                type="text"
-                id="usuarioLogin"
-                placeholder="Nombre de usuario">
+<span
+class="ojo"
+onclick="verPassword('passwordLogin',this)">
+👁️
+</span>
 
+</div>
 
-            <div class="campo">
+<button onclick="iniciarSesion()">
+Iniciar sesión
+</button>
 
-                <input
-                    type="password"
-                    id="passwordLogin"
-                    placeholder="Contraseña">
+<p
+class="enlace"
+onclick="mostrarRegistro()">
 
-                <span
-                    class="ojo"
-                    onclick="verPassword('passwordLogin', this)">
-                    👁️
-                </span>
+¿No tenés una cuenta?
+Crear cuenta
 
-            </div>
+</p>
 
+<p
+class="enlace"
+onclick="mostrarRecuperacion()">
 
-            <button onclick="iniciarSesion()">
-                Iniciar sesión
-            </button>
+¿Olvidaste tu contraseña?
 
+</p>
 
-            <p class="enlace"
-               onclick="mostrarRegistro()">
+<div id="errorLogin"></div>
 
-                ¿No tenés una cuenta?
-                Crear cuenta
+</div>
 
-            </p>
 
+<!-- REGISTRO -->
 
-            <p class="enlace"
-               onclick="mostrarRecuperacion()">
+<div id="registro" class="oculto">
 
-                ¿Olvidaste tu contraseña?
+<h2>
+Crear cuenta 📝
+</h2>
 
-            </p>
+<input
+type="text"
+id="nuevoUsuario"
+placeholder="Nombre de usuario">
 
+<div class="campo">
 
-            <div id="errorLogin"></div>
+<input
+type="password"
+id="nuevaPassword"
+placeholder="Contraseña">
 
-        </div>
+<span
+class="ojo"
+onclick="verPassword('nuevaPassword',this)">
+👁️
+</span>
 
+</div>
 
-        <!-- REGISTRO -->
+<div class="campo">
 
-        <div id="registro"
-             class="oculto">
+<input
+type="password"
+id="confirmarPassword"
+placeholder="Confirmar contraseña">
 
-            <h2>
-                Crear cuenta 📝
-            </h2>
+<span
+class="ojo"
+onclick="verPassword('confirmarPassword',this)">
+👁️
+</span>
 
+</div>
 
-            <input
-                type="text"
-                id="nuevoUsuario"
-                placeholder="Nombre de usuario">
+<button onclick="crearCuenta()">
+Crear cuenta
+</button>
 
+<button
+class="boton-secundario"
+onclick="volverLogin()">
 
-            <div class="campo">
+Volver
 
-                <input
-                    type="password"
-                    id="nuevaPassword"
-                    placeholder="Contraseña">
+</button>
 
-                <span
-                    class="ojo"
-                    onclick="verPassword('nuevaPassword', this)">
-                    👁️
-                </span>
+<div id="errorRegistro"></div>
 
-            </div>
+</div>
 
 
-            <div class="campo">
+<!-- RECUPERACION -->
 
-                <input
-                    type="password"
-                    id="confirmarPassword"
-                    placeholder="Confirmar contraseña">
+<div id="recuperacion" class="oculto">
 
-                <span
-                    class="ojo"
-                    onclick="verPassword('confirmarPassword', this)">
-                    👁️
-                </span>
+<h2>
+Recuperar cuenta 🔑
+</h2>
 
-            </div>
+<p style="margin:15px 0;">
+Ingresá tu nombre de usuario.
+</p>
 
+<input
+type="text"
+id="usuarioRecuperar"
+placeholder="Nombre de usuario">
 
-            <button onclick="crearCuenta()">
-                Crear cuenta
-            </button>
+<button onclick="recuperarCuenta()">
+Recuperar cuenta
+</button>
 
+<button
+class="boton-secundario"
+onclick="volverLogin()">
 
-            <button
-                class="boton-secundario"
-                onclick="volverLogin()">
+Volver
 
-                Volver
+</button>
 
-            </button>
+<div id="mensajeRecuperacion"></div>
 
+</div>
 
-            <div id="errorRegistro"></div>
-
-        </div>
-
-
-        <!-- RECUPERACION -->
-
-        <div id="recuperacion"
-             class="oculto">
-
-            <h2>
-                Recuperar cuenta 🔑
-            </h2>
-
-
-            <p style="margin:15px 0;">
-                Ingresá tu nombre de usuario.
-            </p>
-
-
-            <input
-                type="text"
-                id="usuarioRecuperar"
-                placeholder="Nombre de usuario">
-
-
-            <button onclick="recuperarCuenta()">
-                Recuperar cuenta
-            </button>
-
-
-            <button
-                class="boton-secundario"
-                onclick="volverLogin()">
-
-                Volver
-
-            </button>
-
-
-            <div id="mensajeRecuperacion"></div>
-
-        </div>
-
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- ==================================================
+
+<!-- =========================
      SISTEMA
-================================================== -->
+========================= -->
 
-<section id="sistema"
-         class="pantalla oculto">
+<section id="sistema" class="oculto">
 
 
-    <!-- HEADER -->
+<header>
 
-    <header>
+<div>
 
-        <div>
+<div class="logo-header">
+🌱 AIRA
+</div>
 
-            <div class="logo-header">
-                🌱 AIRA
-            </div>
+<div
+class="usuario-header"
+id="usuarioMostrado">
+</div>
 
-            <div
-                class="usuario-header"
-                id="usuarioMostrado">
-            </div>
+</div>
 
-        </div>
+<button
+class="cerrar boton-rojo"
+onclick="cerrarSesion()">
 
+Cerrar sesión
 
-        <button
-            class="cerrar boton-rojo"
-            onclick="cerrarSesion()">
+</button>
 
-            Cerrar sesión
+</header>
 
-        </button>
 
-    </header>
+<nav>
 
+<button onclick="mostrarPagina('dashboard')">
+🏠 Inicio
+</button>
 
-    <!-- MENU -->
+<button onclick="mostrarPagina('ubicacion')">
+📍 Ubicación
+</button>
 
-    <nav>
+<button onclick="mostrarPagina('clima')">
+☁️ Clima
+</button>
 
-        <button onclick="mostrarPagina('dashboard')">
-            🏠 Inicio
-        </button>
+<button onclick="mostrarPagina('temperatura')">
+🌡️ Temperatura
+</button>
 
-        <button onclick="mostrarPagina('ubicacion')">
-            📍 Ubicación
-        </button>
+<button onclick="mostrarPagina('ambiente')">
+🌱 Ambiente
+</button>
 
-        <button onclick="mostrarPagina('clima')">
-            ☁️ Clima
-        </button>
+<button onclick="mostrarPagina('alertas')">
+⚠️ Alertas
+</button>
 
-        <button onclick="mostrarPagina('temperatura')">
-            🌡️ Temperatura
-        </button>
+</nav>
 
-        <button onclick="mostrarPagina('ambiente')">
-            🌱 Ambiente
-        </button>
 
-        <button onclick="mostrarPagina('alertas')">
-            ⚠️ Alertas
-        </button>
+<main>
 
-    </nav>
 
+<!-- =========================
+     DASHBOARD
+========================= -->
 
-    <main>
+<div id="dashboard" class="pagina activa">
 
+<h1 class="titulo-pagina">
+Panel principal 🌎
+</h1>
 
-        <!-- ==================================================
-             DASHBOARD
-        ================================================== -->
+<p class="descripcion">
 
-        <div id="dashboard"
-             class="pagina activa">
+Bienvenido a AIRA.
+Consultá información meteorológica
+real de tu ubicación.
 
-            <h1 class="titulo-pagina">
-                Panel principal 🌎
-            </h1>
+</p>
 
 
-            <p class="descripcion">
-                Bienvenido a AIRA.
-                Acá podés consultar información
-                ambiental y meteorológica real.
-            </p>
+<div class="tarjetas">
 
+<div class="tarjeta">
 
-            <div class="tarjetas">
+<h3>
+🌡️ Temperatura
+</h3>
 
+<p
+class="numero"
+id="tempInicio">
 
-                <div class="tarjeta">
+--
 
-                    <h3>
-                        🌡️ Temperatura
-                    </h3>
+</p>
 
-                    <p
-                        class="numero"
-                        id="tempInicio">
+</div>
 
-                        --
 
-                    </p>
+<div class="tarjeta">
 
-                </div>
+<h3>
+💧 Humedad
+</h3>
 
+<p
+class="numero"
+id="humedadInicio">
 
-                <div class="tarjeta">
+--
 
-                    <h3>
-                        💧 Humedad
-                    </h3>
+</p>
 
-                    <p
-                        class="numero"
-                        id="humedadInicio">
+</div>
 
-                        --
 
-                    </p>
+<div class="tarjeta">
 
-                </div>
+<h3>
+💨 Viento
+</h3>
 
+<p
+class="numero"
+id="vientoInicio">
 
-                <div class="tarjeta">
+--
 
-                    <h3>
-                        💨 Viento
-                    </h3>
+</p>
 
-                    <p
-                        class="numero"
-                        id="vientoInicio">
+</div>
 
-                        --
 
-                    </p>
+<div class="tarjeta">
 
-                </div>
+<h3>
+🌿 Estado ambiental
+</h3>
 
+<p class="numero verde">
 
-                <div class="tarjeta">
+Bueno
 
-                    <h3>
-                        🌿 Estado ambiental
-                    </h3>
+</p>
 
-                    <p class="numero verde">
-                        Bueno
-                    </p>
+</div>
 
-                </div>
+</div>
 
-            </div>
 
+<div class="alerta">
 
-            <div class="alerta">
+💡 <b>Consejo ambiental:</b>
 
-                💡 <b>Consejo ambiental:</b>
+Cuidá el agua, reducí los residuos
+y reciclá correctamente.
 
-                Recordá cuidar el agua,
-                reducir los residuos y
-                reciclar correctamente.
+</div>
 
-            </div>
+</div>
 
-        </div>
 
 
-        <!-- ==================================================
-             UBICACION
-        ================================================== -->
+<!-- =========================
+     UBICACION
+========================= -->
 
-        <div id="ubicacion"
-             class="pagina">
+<div id="ubicacion" class="pagina">
 
-            <h1 class="titulo-pagina">
-                📍 Mi ubicación
-            </h1>
+<h1 class="titulo-pagina">
+📍 Mi ubicación
+</h1>
 
+<p class="descripcion">
 
-            <p class="descripcion">
+Ingresá tu municipio, ciudad o código postal
+para consultar el clima real.
 
-                Escribí tu municipio, ciudad o
-                código postal para consultar
-                el clima real.
+</p>
 
-            </p>
+<input
+type="text"
+id="ciudad"
+placeholder="Ej: Berazategui, Buenos Aires">
 
+<button onclick="guardarUbicacion()">
 
-            <input
-                type="text"
-                id="ciudad"
-                placeholder="Ej: Berazategui, Buenos Aires">
+🔎 Buscar ubicación y clima
 
+</button>
 
-            <button onclick="guardarUbicacion()">
 
-                🔎 Buscar ubicación y clima
+<div class="ubicacion">
 
-            </button>
+<h3>
+Ubicación registrada
+</h3>
 
+<p id="ubicacionGuardada">
 
-            <div class="ubicacion">
+Todavía no registraste una ubicación.
 
-                <h3>
-                    Ubicación registrada
-                </h3>
+</p>
 
+</div>
 
-                <p id="ubicacionGuardada">
+</div>
 
-                    Todavía no registraste
-                    una ubicación.
 
-                </p>
 
-            </div>
+<!-- =========================
+     CLIMA
+========================= -->
 
-        </div>
+<div id="clima" class="pagina">
 
+<h1 class="titulo-pagina">
+☁️ Clima en tiempo real
+</h1>
 
-        <!-- ==================================================
-             CLIMA
-        ================================================== -->
+<p
+class="descripcion"
+id="ubicacionPronostico">
 
-        <div id="clima"
-             class="pagina">
+Seleccioná una ubicación.
 
-            <h1 class="titulo-pagina">
-                ☁️ Clima en tiempo real
-            </h1>
+</p>
 
 
-            <p class="descripcion"
-               id="ubicacionPronostico">
+<div class="tarjetas">
 
-                Seleccioná una ubicación.
+<div class="tarjeta">
 
-            </p>
+<h3>
+🌡️ Temperatura
+</h3>
 
+<p
+class="numero"
+id="temperatura">
 
-            <div class="tarjetas">
+--
 
+</p>
 
-                <div class="tarjeta">
+</div>
 
-                    <h3>
-                        🌡️ Temperatura
-                    </h3>
 
-                    <p
-                        class="numero"
-                        id="temperatura">
+<div class="tarjeta">
 
-                        --
+<h3>
+💧 Humedad
+</h3>
 
-                    </p>
+<p
+class="numero"
+id="humedad">
 
-                </div>
+--
 
+</p>
 
-                <div class="tarjeta">
+</div>
 
-                    <h3>
-                        💧 Humedad
-                    </h3>
 
-                    <p
-                        class="numero"
-                        id="humedad">
+<div class="tarjeta">
 
-                        --
+<h3>
+💨 Viento
+</h3>
 
-                    </p>
+<p
+class="numero"
+id="viento">
 
-                </div>
+--
 
+</p>
 
-                <div class="tarjeta">
+</div>
 
-                    <h3>
-                        💨 Viento
-                    </h3>
+</div>
 
-                    <p
-                        class="numero"
-                        id="viento">
 
-                        --
+<div
+id="estadoClima"
+class="estado-clima">
 
-                    </p>
+Esperando datos...
 
-                </div>
+</div>
 
-            </div>
 
+<button onclick="actualizarClima()">
 
-            <div
-                id="estadoClima"
-                class="estado-clima">
+🔄 Actualizar clima
 
-                Esperando datos...
+</button>
 
-            </div>
 
+<div
+class="tarjeta"
+style="margin-top:20px;">
 
-            <button
-                onclick="actualizarClima()">
+<h3>
+📅 Pronóstico de 7 días
+</h3>
 
-                🔄 Actualizar clima y pronóstico
+<div id="pronostico">
 
-            </button>
+<p class="cargando">
 
+Ingresá una ubicación para consultar
+el pronóstico.
 
-            <!-- PRONOSTICO -->
+</p>
 
-            <div class="tarjeta"
-                 style="margin-top:20px;">
+</div>
 
-                <h3>
-                    📅 Pronóstico de 7 días
-                </h3>
+</div>
 
+</div>
 
-                <div id="pronostico">
 
-                    <p class="cargando">
 
-                        Ingresá una ubicación
-                        para consultar el pronóstico.
+<!-- =========================
+     TEMPERATURA
+========================= -->
 
-                    </p>
+<div
+id="temperaturaPagina"
+class="pagina">
 
-                </div>
+<h1 class="titulo-pagina">
+🌡️ Monitoreo de temperatura
+</h1>
 
-            </div>
+<p class="descripcion">
 
-        </div>
+Información meteorológica de tu ubicación.
 
+</p>
 
-        <!-- ==================================================
-             TEMPERATURA
-        ================================================== -->
 
-        <div id="temperaturaPagina"
-             class="pagina">
+<div class="tarjetas">
 
-            <h1 class="titulo-pagina">
-                🌡️ Monitoreo de temperatura
-            </h1>
+<div class="tarjeta">
 
+<h3>
+Temperatura actual
+</h3>
 
-            <p class="descripcion">
+<p
+class="numero"
+id="tempActual">
 
-                Información meteorológica
-                de tu ubicación.
+--
 
-            </p>
+</p>
 
+</div>
 
-            <div class="tarjetas">
 
+<div class="tarjeta">
 
-                <div class="tarjeta">
+<h3>
+Máxima de hoy
+</h3>
 
-                    <h3>
-                        Temperatura actual
-                    </h3>
+<p
+class="numero"
+id="tempMax">
 
-                    <p
-                        class="numero"
-                        id="tempActual">
+--
 
-                        --
+</p>
 
-                    </p>
+</div>
 
-                </div>
 
+<div class="tarjeta">
 
-                <div class="tarjeta">
+<h3>
+Mínima de hoy
+</h3>
 
-                    <h3>
-                        Máxima
-                    </h3>
+<p
+class="numero"
+id="tempMin">
 
-                    <p
-                        class="numero"
-                        id="tempMax">
+--
 
-                        --
+</p>
 
-                    </p>
+</div>
 
-                </div>
+</div>
 
 
-                <div class="tarjeta">
+<div
+class="tarjeta"
+style="margin-top:20px;">
 
-                    <h3>
-                        Mínima
-                    </h3>
+<h3>
+📈 Información
+</h3>
 
-                    <p
-                        class="numero"
-                        id="tempMin">
+<p id="cambioTemperatura">
+Esperando datos...
+</p>
 
-                        --
+<div class="barra">
 
-                    </p>
+<div
+class="progreso"
+id="barraTemperatura">
+</div>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
+</div>
 
-            <div class="tarjeta"
-                 style="margin-top:20px;">
 
-                <h3>
-                    📈 Información
-                </h3>
 
+<!-- =========================
+     AMBIENTE
+========================= -->
 
-                <p id="cambioTemperatura">
+<div id="ambiente" class="pagina">
 
-                    Esperando datos...
+<h1 class="titulo-pagina">
+🌱 Estado ambiental
+</h1>
 
-                </p>
+<p class="descripcion">
+Indicadores generales.
+</p>
 
 
-                <div class="barra">
+<div class="tarjetas">
 
-                    <div
-                        class="progreso"
-                        id="barraTemperatura">
-                    </div>
+<div class="tarjeta">
 
-                </div>
+<h3>
+🌿 Calidad ambiental
+</h3>
 
-            </div>
+<p class="numero verde">
+Buena
+</p>
 
-        </div>
+</div>
 
 
-        <!-- ==================================================
-             AMBIENTE
-        ================================================== -->
+<div class="tarjeta">
 
-        <div id="ambiente"
-             class="pagina">
+<h3>
+💧 Humedad
+</h3>
 
-            <h1 class="titulo-pagina">
-                🌱 Estado ambiental
-            </h1>
+<p
+class="numero"
+id="humedadAmbiente">
 
+--
 
-            <p class="descripcion">
-                Indicadores generales.
-            </p>
+</p>
 
+</div>
 
-            <div class="tarjetas">
 
+<div class="tarjeta">
 
-                <div class="tarjeta">
+<h3>
+🌳 Vegetación
+</h3>
 
-                    <h3>
-                        🌿 Calidad ambiental
-                    </h3>
+<p>
+Estado normal
+</p>
 
-                    <p class="numero verde">
-                        Buena
-                    </p>
+</div>
 
-                </div>
 
+<div class="tarjeta">
 
-                <div class="tarjeta">
+<h3>
+♻️ Residuos
+</h3>
 
-                    <h3>
-                        💧 Humedad
-                    </h3>
+<p>
+Recordá reciclar correctamente.
+</p>
 
-                    <p
-                        class="numero"
-                        id="humedadAmbiente">
+</div>
 
-                        --
+</div>
 
-                    </p>
+</div>
 
-                </div>
 
 
-                <div class="tarjeta">
+<!-- =========================
+     ALERTAS
+========================= -->
 
-                    <h3>
-                        🌳 Vegetación
-                    </h3>
+<div id="alertas" class="pagina">
 
-                    <p>
-                        Estado normal
-                    </p>
+<h1 class="titulo-pagina">
+⚠️ Alertas meteorológicas
+</h1>
 
-                </div>
+<p class="descripcion">
 
+Información sobre posibles condiciones
+meteorológicas.
 
-                <div class="tarjeta">
+</p>
 
-                    <h3>
-                        ♻️ Residuos
-                    </h3>
 
-                    <p>
-                        Recordá reciclar
-                        correctamente.
-                    </p>
+<div class="tarjeta">
 
-                </div>
+<h3>
+Estado actual
+</h3>
 
-            </div>
+<p
+id="estadoAlerta"
+class="verde">
 
-        </div>
+🟢 Sin alertas importantes
 
+</p>
 
-        <!-- ==================================================
-             ALERTAS
-        ================================================== -->
+<br>
 
-        <div id="alertas"
-             class="pagina">
+<p id="textoAlerta">
 
-            <h1 class="titulo-pagina">
-                ⚠️ Alertas ambientales
-            </h1>
+AIRA continuará monitoreando
+los datos meteorológicos.
 
+</p>
 
-            <p class="descripcion">
+</div>
 
-                Información sobre posibles
-                condiciones meteorológicas.
+</div>
 
-            </p>
 
-
-            <div class="tarjeta">
-
-                <h3>
-                    Estado actual
-                </h3>
-
-
-                <p
-                    class="verde"
-                    id="estadoAlerta">
-
-                    ● Sin alertas importantes
-
-                </p>
-
-
-                <br>
-
-
-                <p id="textoAlerta">
-
-                    AIRA continuará monitoreando
-                    los datos meteorológicos.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </main>
+</main>
 
 </section>
+
 
 
 <script>
 
-/* ==================================================
-   MOSTRAR / OCULTAR CONTRASEÑA
-================================================== */
+
+/* =========================
+   PASSWORD
+========================= */
 
 function verPassword(id, ojo) {
 
-    let campo =
-        document.getElementById(id);
+let campo =
+document.getElementById(id);
 
+if(campo.type === "password") {
 
-    if (campo.type === "password") {
+campo.type = "text";
 
-        campo.type = "text";
+ojo.innerHTML = "🙈";
 
-        ojo.innerHTML = "🙈";
+} else {
 
-    }
+campo.type = "password";
 
-    else {
+ojo.innerHTML = "👁️";
 
-        campo.type = "password";
-
-        ojo.innerHTML = "👁️";
-
-    }
+}
 
 }
 
 
-/* ==================================================
-   PANTALLAS LOGIN
-================================================== */
+/* =========================
+   PANTALLAS
+========================= */
 
 function mostrarRegistro() {
 
-    document
-        .getElementById("login")
-        .classList.add("oculto");
+document.getElementById("login")
+.classList.add("oculto");
 
-    document
-        .getElementById("recuperacion")
-        .classList.add("oculto");
+document.getElementById("recuperacion")
+.classList.add("oculto");
 
-    document
-        .getElementById("registro")
-        .classList.remove("oculto");
+document.getElementById("registro")
+.classList.remove("oculto");
 
 }
 
 
 function mostrarRecuperacion() {
 
-    document
-        .getElementById("login")
-        .classList.add("oculto");
+document.getElementById("login")
+.classList.add("oculto");
 
-    document
-        .getElementById("registro")
-        .classList.add("oculto");
+document.getElementById("registro")
+.classList.add("oculto");
 
-    document
-        .getElementById("recuperacion")
-        .classList.remove("oculto");
+document.getElementById("recuperacion")
+.classList.remove("oculto");
 
 }
 
 
 function volverLogin() {
 
-    document
-        .getElementById("login")
-        .classList.remove("oculto");
+document.getElementById("login")
+.classList.remove("oculto");
 
-    document
-        .getElementById("registro")
-        .classList.add("oculto");
+document.getElementById("registro")
+.classList.add("oculto");
 
-    document
-        .getElementById("recuperacion")
-        .classList.add("oculto");
+document.getElementById("recuperacion")
+.classList.add("oculto");
 
 }
 
 
-/* ==================================================
+/* =========================
    CREAR CUENTA
-================================================== */
+========================= */
 
 function crearCuenta() {
 
-    let usuario =
-        document
-        .getElementById("nuevoUsuario")
-        .value
-        .trim();
+let usuario =
+document.getElementById("nuevoUsuario")
+.value.trim();
+
+let password =
+document.getElementById("nuevaPassword")
+.value;
+
+let confirmar =
+document.getElementById("confirmarPassword")
+.value;
+
+let error =
+document.getElementById("errorRegistro");
+
+error.innerHTML = "";
 
 
-    let password =
-        document
-        .getElementById("nuevaPassword")
-        .value;
+if(
+usuario === "" ||
+password === "" ||
+confirmar === ""
+) {
 
+error.innerHTML =
+"<div class='mensaje'>" +
+"⚠️ Completá todos los campos." +
+"</div>";
 
-    let confirmar =
-        document
-        .getElementById("confirmarPassword")
-        .value;
-
-
-    let error =
-        document
-        .getElementById("errorRegistro");
-
-
-    error.innerHTML = "";
-
-
-    if (
-        usuario === "" ||
-        password === "" ||
-        confirmar === ""
-    ) {
-
-        error.innerHTML =
-            "<div class='mensaje'>" +
-            "⚠️ Completá todos los campos." +
-            "</div>";
-
-        return;
-
-    }
-
-
-    if (password !== confirmar) {
-
-        error.innerHTML =
-            "<div class='mensaje'>" +
-            "❌ Las contraseñas no coinciden." +
-            "</div>";
-
-        return;
-
-    }
-
-
-    let cuentaExistente =
-        localStorage.getItem(
-            "cuentaAIRA"
-        );
-
-
-    if (cuentaExistente) {
-
-        let cuenta =
-            JSON.parse(cuentaExistente);
-
-
-        if (
-            cuenta.usuario.toLowerCase() ===
-            usuario.toLowerCase()
-        ) {
-
-            error.innerHTML =
-                "<div class='mensaje'>" +
-                "⚠️ Ese usuario ya existe." +
-                "</div>";
-
-            return;
-
-        }
-
-    }
-
-
-    let cuenta = {
-
-        usuario: usuario,
-
-        password: password,
-
-        ubicacion: ""
-
-    };
-
-
-    localStorage.setItem(
-        "cuentaAIRA",
-        JSON.stringify(cuenta)
-    );
-
-
-    error.innerHTML =
-        "<div class='mensaje mensaje-ok'>" +
-        "✅ Cuenta creada correctamente." +
-        "</div>";
-
-
-    setTimeout(function() {
-
-        volverLogin();
-
-        document
-            .getElementById(
-                "usuarioLogin"
-            )
-            .value =
-            usuario;
-
-    }, 1000);
+return;
 
 }
 
 
-/* ==================================================
-   INICIAR SESIÓN
-================================================== */
+if(password !== confirmar) {
+
+error.innerHTML =
+"<div class='mensaje'>" +
+"❌ Las contraseñas no coinciden." +
+"</div>";
+
+return;
+
+}
+
+
+let cuentaAnterior =
+localStorage.getItem("cuentaAIRA");
+
+
+if(cuentaAnterior) {
+
+let cuenta =
+JSON.parse(cuentaAnterior);
+
+if(
+cuenta.usuario.toLowerCase() ===
+usuario.toLowerCase()
+) {
+
+error.innerHTML =
+"<div class='mensaje'>" +
+"⚠️ Ese usuario ya existe." +
+"</div>";
+
+return;
+
+}
+
+}
+
+
+let cuenta = {
+
+usuario: usuario,
+
+password: password,
+
+ubicacion: ""
+
+};
+
+
+localStorage.setItem(
+"cuentaAIRA",
+JSON.stringify(cuenta)
+);
+
+
+error.innerHTML =
+"<div class='mensaje mensaje-ok'>" +
+"✅ Cuenta creada correctamente." +
+"</div>";
+
+
+setTimeout(function() {
+
+volverLogin();
+
+document.getElementById(
+"usuarioLogin"
+).value = usuario;
+
+},1000);
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
 
 function iniciarSesion() {
 
-    let usuario =
-        document
-        .getElementById("usuarioLogin")
-        .value
-        .trim();
+let usuario =
+document.getElementById(
+"usuarioLogin"
+).value.trim();
+
+let password =
+document.getElementById(
+"passwordLogin"
+).value;
+
+let error =
+document.getElementById(
+"errorLogin"
+);
+
+let datos =
+localStorage.getItem("cuentaAIRA");
 
 
-    let password =
-        document
-        .getElementById("passwordLogin")
-        .value;
+error.innerHTML = "";
 
 
-    let cuenta =
-        JSON.parse(
-            localStorage.getItem(
-                "cuentaAIRA"
-            )
-        );
+if(!datos) {
 
+error.innerHTML =
+"<div class='mensaje'>" +
+"⚠️ Primero tenés que crear una cuenta." +
+"</div>";
 
-    let error =
-        document
-        .getElementById("errorLogin");
-
-
-    error.innerHTML = "";
-
-
-    if (!cuenta) {
-
-        error.innerHTML =
-            "<div class='mensaje'>" +
-            "⚠️ Primero tenés que crear una cuenta." +
-            "</div>";
-
-        return;
-
-    }
-
-
-    if (
-        usuario === cuenta.usuario &&
-        password === cuenta.password
-    ) {
-
-        document
-            .getElementById("inicio")
-            .classList.add("oculto");
-
-
-        document
-            .getElementById("sistema")
-            .classList.remove("oculto");
-
-
-        document
-            .getElementById("usuarioMostrado")
-            .innerHTML =
-            "Usuario: " + cuenta.usuario;
-
-
-        if (cuenta.ubicacion !== "") {
-
-            document
-                .getElementById("ciudad")
-                .value =
-                cuenta.ubicacion;
-
-
-            document
-                .getElementById(
-                    "ubicacionGuardada"
-                )
-                .innerHTML =
-                "📍 " + cuenta.ubicacion;
-
-
-            cargarDatos();
-
-        }
-
-    }
-
-    else {
-
-        error.innerHTML =
-            "<div class='mensaje'>" +
-            "❌ Usuario o contraseña incorrectos." +
-            "</div>";
-
-    }
+return;
 
 }
 
 
-/* ==================================================
-   RECUPERAR CUENTA
-================================================== */
+let cuenta =
+JSON.parse(datos);
+
+
+if(
+usuario === cuenta.usuario &&
+password === cuenta.password
+) {
+
+document.getElementById("inicio")
+.classList.add("oculto");
+
+document.getElementById("sistema")
+.classList.remove("oculto");
+
+document.getElementById(
+"usuarioMostrado"
+).innerHTML =
+"Usuario: " + cuenta.usuario;
+
+
+if(cuenta.ubicacion !== "") {
+
+document.getElementById(
+"ciudad"
+).value =
+cuenta.ubicacion;
+
+document.getElementById(
+"ubicacionGuardada"
+).innerHTML =
+"📍 " + cuenta.ubicacion;
+
+cargarDatos();
+
+}
+
+} else {
+
+error.innerHTML =
+"<div class='mensaje'>" +
+"❌ Usuario o contraseña incorrectos." +
+"</div>";
+
+}
+
+}
+
+
+/* =========================
+   RECUPERAR
+========================= */
 
 function recuperarCuenta() {
 
-    let usuario =
-        document
-        .getElementById(
-            "usuarioRecuperar"
-        )
-        .value
-        .trim();
+let usuario =
+document.getElementById(
+"usuarioRecuperar"
+).value.trim();
+
+let datos =
+localStorage.getItem("cuentaAIRA");
+
+let mensaje =
+document.getElementById(
+"mensajeRecuperacion"
+);
 
 
-    let cuenta =
-        JSON.parse(
-            localStorage.getItem(
-                "cuentaAIRA"
-            )
-        );
+if(!datos) {
 
+mensaje.innerHTML =
+"<div class='mensaje'>" +
+"❌ No existe ninguna cuenta." +
+"</div>";
 
-    let mensaje =
-        document
-        .getElementById(
-            "mensajeRecuperacion"
-        );
-
-
-    if (
-        cuenta &&
-        usuario === cuenta.usuario
-    ) {
-
-        mensaje.innerHTML =
-
-            "<div class='mensaje mensaje-ok'>" +
-
-            "✅ Cuenta encontrada.<br><br>" +
-
-            "Usuario: " +
-            cuenta.usuario +
-
-            "<br>" +
-
-            "Contraseña: " +
-            cuenta.password +
-
-            "</div>";
-
-    }
-
-    else {
-
-        mensaje.innerHTML =
-
-            "<div class='mensaje'>" +
-
-            "❌ No encontramos una cuenta " +
-            "con ese usuario." +
-
-            "</div>";
-
-    }
+return;
 
 }
 
 
-/* ==================================================
+let cuenta =
+JSON.parse(datos);
+
+
+if(usuario === cuenta.usuario) {
+
+mensaje.innerHTML =
+"<div class='mensaje mensaje-ok'>" +
+
+"✅ Cuenta encontrada.<br><br>" +
+
+"Usuario: " +
+cuenta.usuario +
+
+"<br>Contraseña: " +
+cuenta.password +
+
+"</div>";
+
+} else {
+
+mensaje.innerHTML =
+"<div class='mensaje'>" +
+"❌ Usuario no encontrado." +
+"</div>";
+
+}
+
+}
+
+
+/* =========================
    MENU
-================================================== */
+========================= */
 
 function mostrarPagina(id) {
 
-    let paginas =
-        document.querySelectorAll(
-            ".pagina"
-        );
+let paginas =
+document.querySelectorAll(".pagina");
 
 
-    paginas.forEach(function(pagina) {
+paginas.forEach(function(pagina) {
 
-        pagina.classList.remove(
-            "activa"
-        );
+pagina.classList.remove("activa");
 
-    });
+});
 
 
-    if (id === "temperatura") {
+if(id === "temperatura") {
 
-        document
-            .getElementById(
-                "temperaturaPagina"
-            )
-            .classList.add("activa");
+document.getElementById(
+"temperaturaPagina"
+).classList.add("activa");
 
-    }
+} else {
 
-    else {
+document.getElementById(id)
+.classList.add("activa");
 
-        document
-            .getElementById(id)
-            .classList.add("activa");
-
-    }
+}
 
 }
 
 
-/* ==================================================
-   CERRAR SESIÓN
-================================================== */
+/* =========================
+   CERRAR SESION
+========================= */
 
 function cerrarSesion() {
 
-    document
-        .getElementById("sistema")
-        .classList.add("oculto");
+document.getElementById("sistema")
+.classList.add("oculto");
 
+document.getElementById("inicio")
+.classList.remove("oculto");
 
-    document
-        .getElementById("inicio")
-        .classList.remove("oculto");
-
-
-    document
-        .getElementById("passwordLogin")
-        .value = "";
+document.getElementById(
+"passwordLogin"
+).value = "";
 
 }
 
 
-/* ==================================================
-   OBTENER DESCRIPCIÓN DEL CLIMA
-================================================== */
+/* =========================
+   DESCRIPCION CLIMA
+========================= */
 
-function obtenerDescripcionClima(codigo) {
+function obtenerDescripcion(codigo) {
 
-    if (codigo === 0)
-        return "☀️ Cielo despejado.";
+if(codigo === 0)
+return "☀️ Cielo despejado";
 
-    if (codigo === 1)
-        return "🌤️ Mayormente despejado.";
+if(codigo === 1)
+return "🌤️ Mayormente despejado";
 
-    if (codigo === 2)
-        return "🌤️ Parcialmente nublado.";
+if(codigo === 2)
+return "⛅ Parcialmente nublado";
 
-    if (codigo === 3)
-        return "☁️ Cielo cubierto.";
+if(codigo === 3)
+return "☁️ Cielo cubierto";
 
-    if (
-        codigo === 45 ||
-        codigo === 48
-    )
-        return "🌫️ Niebla.";
+if(codigo === 45 || codigo === 48)
+return "🌫️ Niebla";
 
-    if (
-        codigo >= 51 &&
-        codigo <= 57
-    )
-        return "🌦️ Llovizna.";
+if(codigo >= 51 && codigo <= 57)
+return "🌦️ Llovizna";
 
-    if (
-        codigo >= 61 &&
-        codigo <= 67
-    )
-        return "🌧️ Lluvia.";
+if(codigo >= 61 && codigo <= 67)
+return "🌧️ Lluvia";
 
-    if (
-        codigo >= 71 &&
-        codigo <= 77
-    )
-        return "❄️ Nieve.";
+if(codigo >= 71 && codigo <= 77)
+return "❄️ Nieve";
 
-    if (
-        codigo >= 80 &&
-        codigo <= 82
-    )
-        return "🌦️ Chaparrones.";
+if(codigo >= 80 && codigo <= 82)
+return "🌦️ Chaparrones";
 
-    if (
-        codigo === 85 ||
-        codigo === 86
-    )
-        return "🌨️ Chaparrones de nieve.";
+if(codigo >= 85 && codigo <= 86)
+return "🌨️ Chaparrones de nieve";
 
-    if (codigo === 95)
-        return "⛈️ Tormenta.";
+if(codigo === 95)
+return "⛈️ Tormenta";
 
-    if (
-        codigo === 96 ||
-        codigo === 99
-    )
-        return "⛈️ Tormenta con granizo.";
+if(codigo === 96 || codigo === 99)
+return "⛈️ Tormenta con granizo";
 
-    return "🌡️ Condiciones variables.";
+return "🌡️ Condiciones variables";
 
 }
 
 
-/* ==================================================
+/* =========================
    ICONO
-================================================== */
+========================= */
 
-function obtenerIconoClima(codigo) {
+function obtenerIcono(codigo) {
 
-    if (codigo === 0)
-        return "☀️";
+if(codigo === 0)
+return "☀️";
 
-    if (
-        codigo === 1 ||
-        codigo === 2
-    )
-        return "🌤️";
+if(codigo === 1 || codigo === 2)
+return "🌤️";
 
-    if (codigo === 3)
-        return "☁️";
+if(codigo === 3)
+return "☁️";
 
-    if (
-        codigo === 45 ||
-        codigo === 48
-    )
-        return "🌫️";
+if(codigo === 45 || codigo === 48)
+return "🌫️";
 
-    if (
-        codigo >= 51 &&
-        codigo <= 67
-    )
-        return "🌧️";
+if(codigo >= 51 && codigo <= 67)
+return "🌧️";
 
-    if (
-        codigo >= 71 &&
-        codigo <= 77
-    )
-        return "❄️";
+if(codigo >= 71 && codigo <= 77)
+return "❄️";
 
-    if (
-        codigo >= 80 &&
-        codigo <= 82
-    )
-        return "🌦️";
+if(codigo >= 80 && codigo <= 82)
+return "🌦️";
 
-    if (
-        codigo === 85 ||
-        codigo === 86
-    )
-        return "🌨️";
+if(codigo >= 85 && codigo <= 86)
+return "🌨️";
 
-    if (codigo >= 95)
-        return "⛈️";
+if(codigo >= 95)
+return "⛈️";
 
-    return "🌡️";
+return "🌡️";
 
 }
 
 
-/* ==================================================
+/* =========================
    FECHA
-================================================== */
+========================= */
 
 function formatearFecha(fecha) {
 
-    let partes =
-        fecha.split("-");
+let partes =
+fecha.split("-");
 
+let fechaObj =
+new Date(
+partes[0],
+partes[1] - 1,
+partes[2]
+);
 
-    let fechaObj =
-        new Date(
-            partes[0],
-            partes[1] - 1,
-            partes[2]
-        );
-
-
-    return fechaObj.toLocaleDateString(
-        "es-AR",
-        {
-            weekday: "long",
-            day: "numeric",
-            month: "short"
-        }
-    );
+return fechaObj.toLocaleDateString(
+"es-AR",
+{
+weekday: "long",
+day: "numeric",
+month: "short"
+}
+);
 
 }
 
 
-/* ==================================================
-   MOSTRAR PRONÓSTICO
-================================================== */
+/* =========================
+   PRONOSTICO
+========================= */
 
 function mostrarPronostico(daily) {
 
-    let contenedor =
-        document.getElementById(
-            "pronostico"
-        );
+let contenedor =
+document.getElementById("pronostico");
 
+contenedor.innerHTML = "";
 
-    contenedor.innerHTML = "";
 
+for(
+let i = 0;
+i < daily.time.length;
+i++
+) {
 
-    for (
-        let i = 0;
-        i < daily.time.length;
-        i++
-    ) {
+let tarjeta =
+document.createElement("div");
 
-        let fecha =
-            daily.time[i];
+tarjeta.className =
+"dia-pronostico";
 
 
-        let codigo =
-            daily.weather_code[i];
+tarjeta.innerHTML =
 
+"<h4>" +
 
-        let maxima =
-            daily.temperature_2m_max[i];
+formatearFecha(
+daily.time[i]
+) +
 
+"</h4>" +
 
-        let minima =
-            daily.temperature_2m_min[i];
+"<div class='icono-clima'>" +
 
+obtenerIcono(
+daily.weather_code[i]
+) +
 
-        let lluvia =
-            daily.precipitation_probability_max[i];
+"</div>" +
 
+"<p>" +
 
-        let precipitacion =
-            daily.precipitation_sum[i];
+obtenerDescripcion(
+daily.weather_code[i]
+) +
 
+"</p>" +
 
-        let viento =
-            daily.wind_speed_10m_max[i];
+"<p style='margin-top:10px;'>" +
 
+"<span class='temp-max'>" +
 
-        let tarjeta =
-            document.createElement(
-                "div"
-            );
+daily.temperature_2m_max[i]
+.toFixed(1) +
 
+" °C</span> / " +
 
-        tarjeta.className =
-            "dia-pronostico";
+"<span class='temp-min'>" +
 
+daily.temperature_2m_min[i]
+.toFixed(1) +
 
-        tarjeta.innerHTML =
+" °C</span>" +
 
-            "<h4>" +
+"</p>" +
 
-            formatearFecha(fecha) +
+"<p class='lluvia'>" +
 
-            "</h4>" +
+"💧 Lluvia: " +
 
+daily.precipitation_probability_max[i] +
 
-            "<div class='icono-clima'>" +
+"%" +
 
-            obtenerIconoClima(codigo) +
+"</p>" +
 
-            "</div>" +
+"<p>" +
 
+"🌧️ " +
 
-            "<p>" +
+daily.precipitation_sum[i]
+.toFixed(1) +
 
-            obtenerDescripcionClima(codigo) +
+" mm" +
 
-            "</p>" +
+"</p>" +
 
+"<p class='viento'>" +
 
-            "<p style='margin-top:10px;'>" +
+"💨 Viento: " +
 
-            "<span class='temp-max'>" +
+daily.wind_speed_10m_max[i]
+.toFixed(1) +
 
-            maxima.toFixed(1) +
+" km/h" +
 
-            " °C" +
+"</p>";
 
-            "</span>" +
 
-            " / " +
+contenedor.appendChild(tarjeta);
 
-            "<span class='temp-min'>" +
-
-            minima.toFixed(1) +
-
-            " °C" +
-
-            "</span>" +
-
-            "</p>" +
-
-
-            "<p class='lluvia'>" +
-
-            "💧 Lluvia: " +
-
-            lluvia +
-
-            "%" +
-
-            "</p>" +
-
-
-            "<p style='font-size:13px;color:#555;'>" +
-
-            "🌧️ " +
-
-            precipitacion.toFixed(1) +
-
-            " mm" +
-
-            "</p>" +
-
-
-            "<p class='viento-pronostico'>" +
-
-            "💨 Máx. viento: " +
-
-            viento.toFixed(1) +
-
-            " km/h" +
-
-            "</p>";
-
-
-        contenedor.appendChild(
-            tarjeta
-        );
-
-    }
+}
 
 }
 
 
-/* ==================================================
-   CLIMA REAL
-================================================== */
+/* =========================
+   API CLIMA
+========================= */
 
 async function cargarDatos() {
 
-    let cuenta =
-        JSON.parse(
-            localStorage.getItem(
-                "cuentaAIRA"
-            )
-        );
+let datos =
+localStorage.getItem("cuentaAIRA");
 
 
-    if (
-        !cuenta ||
-        cuenta.ubicacion === ""
-    ) {
+if(!datos) {
 
-        mostrarErrorClima(
-            "📍 Primero guardá una ubicación."
-        );
+mostrarError(
+"❌ No existe una cuenta."
+);
 
-        return;
-
-    }
-
-
-    let pronostico =
-        document.getElementById(
-            "pronostico"
-        );
-
-
-    pronostico.innerHTML =
-        "<p class='cargando'>" +
-        "🔎 Buscando ubicación y consultando clima..." +
-        "</p>";
-
-
-    try {
-
-        /* ==========================================
-           BUSCAR UBICACIÓN
-        ========================================== */
-
-        let busqueda =
-            encodeURIComponent(
-                cuenta.ubicacion
-            );
-
-
-        let respuestaGeo =
-            await fetch(
-
-                "https://geocoding-api.open-meteo.com/v1/search" +
-
-                "?name=" +
-                busqueda +
-
-                "&count=5" +
-
-                "&language=es" +
-
-                "&format=json" +
-
-                "&countryCode=AR"
-
-            );
-
-
-        if (!respuestaGeo.ok) {
-
-            throw new Error(
-                "Error de geocodificación."
-            );
-
-        }
-
-
-        let datosGeo =
-            await respuestaGeo.json();
-
-
-        if (
-            !datosGeo.results ||
-            datosGeo.results.length === 0
-        ) {
-
-            throw new Error(
-                "Ubicación no encontrada."
-            );
-
-        }
-
-
-        let ubicacion =
-            datosGeo.results[0];
-
-
-        let latitud =
-            ubicacion.latitude;
-
-
-        let longitud =
-            ubicacion.longitude;
-
-
-        let nombreLugar =
-            ubicacion.name;
-
-
-        let provincia =
-            ubicacion.admin1 || "";
-
-
-        /* ==========================================
-           CONSULTAR CLIMA
-        ========================================== */
-
-        let urlClima =
-
-            "https://api.open-meteo.com/v1/forecast" +
-
-            "?latitude=" +
-            latitud +
-
-            "&longitude=" +
-            longitud +
-
-            "&current=" +
-
-            "temperature_2m," +
-            "relative_humidity_2m," +
-            "wind_speed_10m," +
-            "weather_code" +
-
-            "&daily=" +
-
-            "weather_code," +
-            "temperature_2m_max," +
-            "temperature_2m_min," +
-            "precipitation_probability_max," +
-            "precipitation_sum," +
-            "wind_speed_10m_max" +
-
-            "&temperature_unit=celsius" +
-
-            "&wind_speed_unit=kmh" +
-
-            "&precipitation_unit=mm" +
-
-            "&timezone=auto" +
-
-            "&forecast_days=7";
-
-
-        let respuestaClima =
-            await fetch(urlClima);
-
-
-        if (!respuestaClima.ok) {
-
-            throw new Error(
-                "Error consultando clima."
-            );
-
-        }
-
-
-        let clima =
-            await respuestaClima.json();
-
-
-        /* ==========================================
-           DATOS ACTUALES
-        ========================================== */
-
-        let temperatura =
-            clima.current.temperature_2m;
-
-
-        let humedad =
-            clima.current.relative_humidity_2m;
-
-
-        let viento =
-            clima.current.wind_speed_10m;
-
-
-        let codigoActual =
-            clima.current.weather_code;
-
-
-        /* ==========================================
-           TEMPERATURAS DEL DÍA
-        ========================================== */
-
-        let maximaHoy =
-            clima.daily.temperature_2m_max[0];
-
-
-        let minimaHoy =
-            clima.daily.temperature_2m_min[0];
-
-
-        /* ==========================================
-           DASHBOARD
-        ========================================== */
-
-        document
-            .getElementById(
-                "tempInicio"
-            )
-            .innerHTML =
-            temperatura.toFixed(1) +
-            " °C";
-
-
-        document
-            .getElementById(
-                "humedadInicio"
-            )
-            .innerHTML =
-            humedad + " %";
-
-
-        document
-            .getElementById(
-                "vientoInicio"
-            )
-            .innerHTML =
-            viento.toFixed(1) +
-            " km/h";
-
-
-        /* ==========================================
-           CLIMA
-        ========================================== */
-
-        document
-            .getElementById(
-                "temperatura"
-            )
-            .innerHTML =
-            temperatura.toFixed(1) +
-            " °C";
-
-
-        document
-            .getElementById(
-                "humedad"
-            )
-            .innerHTML =
-            humedad + " %";
-
-
-        document
-            .getElementById(
-                "viento"
-            )
-            .innerHTML =
-            viento.toFixed(1) +
-            " km/h";
-
-
-        /* ==========================================
-           TEMPERATURA
-        ========================================== */
-
-        document
-            .getElementById(
-                "tempActual"
-            )
-            .innerHTML =
-            temperatura.toFixed(1) +
-            " °C";
-
-
-        document
-            .getElementById(
-                "tempMax"
-            )
-            .innerHTML =
-            maximaHoy.toFixed(1) +
-            " °C";
-
-
-        document
-            .getElementById(
-                "tempMin"
-            )
-            .innerHTML =
-            minimaHoy.toFixed(1) +
-            " °C";
-
-
-        /* ==========================================
-           AMBIENTE
-        ========================================== */
-
-        document
-            .getElementById(
-                "humedadAmbiente"
-            )
-            .innerHTML =
-            humedad + " %";
-
-
-        /* ==========================================
-           UBICACIÓN
-        ========================================== */
-
-        let textoUbicacion =
-            "📍 " +
-            nombreLugar;
-
-
-        if (provincia) {
-
-            textoUbicacion +=
-                ", " + provincia;
-
-        }
-
-
-        document
-            .getElementById(
-                "ubicacionGuardada"
-            )
-            .innerHTML =
-            textoUbicacion;
-
-
-        document
-            .getElementById(
-                "ubicacionPronostico"
-            )
-            .innerHTML =
-            "📍 Pronóstico para <b>" +
-            nombreLugar +
-            "</b>" +
-            (
-                provincia
-                ? ", " + provincia
-                : ""
-            );
-
-
-        /* ==========================================
-           ESTADO CLIMÁTICO
-        ========================================== */
-
-        document
-            .getElementById(
-                "estadoClima"
-            )
-            .innerHTML =
-
-            obtenerIconoClima(
-                codigoActual
-            ) +
-
-            " " +
-
-            obtenerDescripcionClima(
-                codigoActual
-            );
-
-
-        /* ==========================================
-           INFORMACIÓN DE TEMPERATURA
-        ========================================== */
-
-        document
-            .getElementById(
-                "cambioTemperatura"
-            )
-            .innerHTML =
-
-            obtenerDescripcionClima(
-                codigoActual
-            ) +
-
-            " Temperatura actual: " +
-
-            temperatura.toFixed(1) +
-
-            " °C. Máxima de hoy: " +
-
-            maximaHoy.toFixed(1) +
-
-            " °C. Mínima: " +
-
-            minimaHoy.toFixed(1) +
-
-            " °C.";
-
-
-        /* ==========================================
-           BARRA TEMPERATURA
-        ========================================== */
-
-        let porcentaje =
-            Math.min(
-                Math.max(
-                    ((temperatura + 10) / 50) * 100,
-                    5
-                ),
-                100
-            );
-
-
-        document
-            .getElementById(
-                "barraTemperatura"
-            )
-            .style.width =
-            porcentaje + "%";
-
-
-        /* ==========================================
-           PRONÓSTICO
-        ========================================== */
-
-        mostrarPronostico(
-            clima.daily
-        );
-
-
-        /* ==========================================
-           ALERTAS
-        ========================================== */
-
-        actualizarAlertas(
-            clima
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            error
-        );
-
-
-        mostrarErrorClima(
-
-            "❌ No pudimos encontrar esa ubicación. " +
-
-            "Probá escribiendo el municipio, " +
-
-            "por ejemplo: Berazategui."
-
-        );
-
-    }
+return;
 
 }
 
 
-/* ==================================================
-   ACTUALIZAR CLIMA
-================================================== */
+let cuenta =
+JSON.parse(datos);
 
-async function actualizarClima() {
 
-    await cargarDatos();
+if(!cuenta.ubicacion) {
+
+mostrarError(
+"📍 Primero ingresá una ubicación."
+);
+
+return;
 
 }
 
 
-/* ==================================================
-   GUARDAR UBICACIÓN
-================================================== */
+let ubicacionBuscada =
+encodeURIComponent(
+cuenta.ubicacion
+);
+
+
+document.getElementById(
+"pronostico"
+).innerHTML =
+
+"<p class='cargando'>" +
+"🔎 Buscando ubicación..." +
+"</p>";
+
+
+try {
+
+
+/* =========================
+   GEOCODIFICACION
+========================= */
+
+let respuestaGeo =
+await fetch(
+
+"https://geocoding-api.open-meteo.com/v1/search" +
+
+"?name=" +
+ubicacionBuscada +
+
+"&count=5" +
+
+"&language=es" +
+
+"&format=json" +
+
+"&countryCode=AR"
+
+);
+
+
+if(!respuestaGeo.ok) {
+
+throw new Error(
+"No se pudo buscar la ubicación."
+);
+
+}
+
+
+let datosGeo =
+await respuestaGeo.json();
+
+
+if(
+!datosGeo.results ||
+datosGeo.results.length === 0
+) {
+
+throw new Error(
+"Ubicación no encontrada."
+);
+
+}
+
+
+let lugar =
+datosGeo.results[0];
+
+
+let latitud =
+lugar.latitude;
+
+let longitud =
+lugar.longitude;
+
+let nombre =
+lugar.name;
+
+let provincia =
+lugar.admin1 || "";
+
+
+/* =========================
+   API METEOROLOGICA
+========================= */
+
+let url =
+
+"https://api.open-meteo.com/v1/forecast" +
+
+"?latitude=" +
+latitud +
+
+"&longitude=" +
+longitud +
+
+"&current=" +
+
+"temperature_2m," +
+"relative_humidity_2m," +
+"wind_speed_10m," +
+"weather_code" +
+
+"&daily=" +
+
+"weather_code," +
+"temperature_2m_max," +
+"temperature_2m_min," +
+"precipitation_probability_max," +
+"precipitation_sum," +
+"wind_speed_10m_max" +
+
+"&temperature_unit=celsius" +
+
+"&wind_speed_unit=kmh" +
+
+"&precipitation_unit=mm" +
+
+"&timezone=auto" +
+
+"&forecast_days=7";
+
+
+let respuesta =
+await fetch(url);
+
+
+if(!respuesta.ok) {
+
+throw new Error(
+"No se pudo obtener el clima."
+);
+
+}
+
+
+let clima =
+await respuesta.json();
+
+
+/* =========================
+   DATOS ACTUALES
+========================= */
+
+let temperatura =
+clima.current.temperature_2m;
+
+let humedad =
+clima.current.relative_humidity_2m;
+
+let viento =
+clima.current.wind_speed_10m;
+
+let codigo =
+clima.current.weather_code;
+
+
+let maxima =
+clima.daily.temperature_2m_max[0];
+
+let minima =
+clima.daily.temperature_2m_min[0];
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+document.getElementById(
+"tempInicio"
+).innerHTML =
+
+temperatura.toFixed(1) +
+" °C";
+
+
+document.getElementById(
+"humedadInicio"
+).innerHTML =
+
+humedad + " %";
+
+
+document.getElementById(
+"vientoInicio"
+).innerHTML =
+
+viento.toFixed(1) +
+" km/h";
+
+
+/* =========================
+   CLIMA
+========================= */
+
+document.getElementById(
+"temperatura"
+).innerHTML =
+
+temperatura.toFixed(1) +
+" °C";
+
+
+document.getElementById(
+"humedad"
+).innerHTML =
+
+humedad + " %";
+
+
+document.getElementById(
+"viento"
+).innerHTML =
+
+viento.toFixed(1) +
+" km/h";
+
+
+document.getElementById(
+"estadoClima"
+).innerHTML =
+
+obtenerIcono(codigo) +
+" " +
+obtenerDescripcion(codigo);
+
+
+/* =========================
+   TEMPERATURA
+========================= */
+
+document.getElementById(
+"tempActual"
+).innerHTML =
+
+temperatura.toFixed(1) +
+" °C";
+
+
+document.getElementById(
+"tempMax"
+).innerHTML =
+
+maxima.toFixed(1) +
+" °C";
+
+
+document.getElementById(
+"tempMin"
+).innerHTML =
+
+minima.toFixed(1) +
+" °C";
+
+
+document.getElementById(
+"cambioTemperatura"
+).innerHTML =
+
+obtenerDescripcion(codigo) +
+
+". Temperatura actual: " +
+
+temperatura.toFixed(1) +
+
+" °C. Máxima: " +
+
+maxima.toFixed(1) +
+
+" °C. Mínima: " +
+
+minima.toFixed(1) +
+
+" °C.";
+
+
+/* =========================
+   BARRA
+========================= */
+
+let porcentaje =
+
+Math.min(
+Math.max(
+((temperatura + 10) / 50) * 100,
+5
+),
+100
+);
+
+
+document.getElementById(
+"barraTemperatura"
+).style.width =
+
+porcentaje + "%";
+
+
+/* =========================
+   AMBIENTE
+========================= */
+
+document.getElementById(
+"humedadAmbiente"
+).innerHTML =
+
+humedad + " %";
+
+
+/* =========================
+   UBICACION
+========================= */
+
+let textoLugar =
+"📍 " + nombre;
+
+
+if(provincia) {
+
+textoLugar +=
+", " + provincia;
+
+}
+
+
+document.getElementById(
+"ubicacionGuardada"
+).innerHTML =
+textoLugar;
+
+
+document.getElementById(
+"ubicacionPronostico"
+).innerHTML =
+
+"📍 Pronóstico para <b>" +
+nombre +
+"</b>" +
+
+(
+provincia
+? ", " + provincia
+: ""
+);
+
+
+/* =========================
+   PRONOSTICO
+========================= */
+
+mostrarPronostico(
+clima.daily
+);
+
+
+/* =========================
+   ALERTAS
+========================= */
+
+actualizarAlertas(clima);
+
+}
+
+catch(error) {
+
+console.error(error);
+
+mostrarError(
+"❌ No encontramos esa ubicación. " +
+"Probá con el nombre del municipio, ciudad " +
+"o código postal."
+);
+
+}
+
+}
+
+
+/* =========================
+   GUARDAR UBICACION
+========================= */
 
 async function guardarUbicacion() {
 
-    let ciudad =
-        document
-        .getElementById(
-            "ciudad"
-        )
-        .value
-        .trim();
+let ciudad =
+document.getElementById(
+"ciudad"
+).value.trim();
 
 
-    if (ciudad === "") {
+if(ciudad === "") {
 
-        alert(
-            "⚠️ Ingresá un municipio o ciudad."
-        );
+alert(
+"⚠️ Ingresá una ciudad o municipio."
+);
 
-        return;
-
-    }
-
-
-    let cuenta =
-        JSON.parse(
-            localStorage.getItem(
-                "cuentaAIRA"
-            )
-        );
-
-
-    if (!cuenta) {
-
-        alert(
-            "❌ No hay una cuenta registrada."
-        );
-
-        return;
-
-    }
-
-
-    cuenta.ubicacion =
-        ciudad;
-
-
-    localStorage.setItem(
-        "cuentaAIRA",
-        JSON.stringify(cuenta)
-    );
-
-
-    document
-        .getElementById(
-            "ubicacionGuardada"
-        )
-        .innerHTML =
-        "🔎 Buscando " +
-        ciudad +
-        "...";
-
-
-    await cargarDatos();
-
-
-    mostrarPagina(
-        "clima"
-    );
+return;
 
 }
 
 
-/* ==================================================
-   ERRORES
-================================================== */
-
-function mostrarErrorClima(mensaje) {
-
-    let estado =
-        document.getElementById(
-            "estadoClima"
-        );
+let datos =
+localStorage.getItem("cuentaAIRA");
 
 
-    if (estado) {
+if(!datos) {
 
-        estado.innerHTML =
-            mensaje;
+alert(
+"❌ Primero tenés que crear una cuenta."
+);
 
-    }
-
-
-    let pronostico =
-        document.getElementById(
-            "pronostico"
-        );
-
-
-    if (pronostico) {
-
-        pronostico.innerHTML =
-
-            "<div class='error-clima'>" +
-
-            mensaje +
-
-            "</div>";
-
-    }
+return;
 
 }
 
 
-/* ==================================================
+let cuenta =
+JSON.parse(datos);
+
+
+cuenta.ubicacion =
+ciudad;
+
+
+localStorage.setItem(
+"cuentaAIRA",
+JSON.stringify(cuenta)
+);
+
+
+document.getElementById(
+"ubicacionGuardada"
+).innerHTML =
+
+"🔎 Buscando " +
+ciudad +
+"...";
+
+
+await cargarDatos();
+
+
+mostrarPagina("clima");
+
+}
+
+
+/* =========================
+   ACTUALIZAR CLIMA
+========================= */
+
+async function actualizarClima() {
+
+await cargarDatos();
+
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+function mostrarError(mensaje) {
+
+document.getElementById(
+"estadoClima"
+).innerHTML =
+mensaje;
+
+
+document.getElementById(
+"pronostico"
+).innerHTML =
+
+"<div class='mensaje'>" +
+mensaje +
+"</div>";
+
+}
+
+
+/* =========================
    ALERTAS
-================================================== */
+========================= */
 
 function actualizarAlertas(clima) {
 
-    let alerta =
-        document.getElementById(
-            "estadoAlerta"
-        );
+let estado =
+document.getElementById(
+"estadoAlerta"
+);
+
+let texto =
+document.getElementById(
+"textoAlerta"
+);
 
 
-    let texto =
-        document.getElementById(
-            "textoAlerta"
-        );
+let lluvia =
+clima.daily
+.precipitation_probability_max[0];
+
+let codigo =
+clima.daily
+.weather_code[0];
 
 
-    let probabilidad =
-        clima.daily
-        .precipitation_probability_max[0];
+if(
+codigo >= 95 ||
+lluvia >= 80
+) {
 
+estado.className =
+"rojo";
 
-    let codigo =
-        clima.daily
-        .weather_code[0];
+estado.innerHTML =
+"⚠️ ● Atención meteorológica";
 
+texto.innerHTML =
 
-    if (
-        codigo >= 95 ||
-        probabilidad >= 80
-    ) {
+"Se detectan condiciones meteorológicas " +
+"que podrían requerir atención. " +
+"Revisá el pronóstico antes de realizar " +
+"actividades al aire libre.";
 
-        alerta.className =
-            "rojo";
+}
 
+else if(
+lluvia >= 50
+) {
 
-        alerta.innerHTML =
-            "⚠️ ● Atención: condiciones meteorológicas.";
+estado.className =
+"amarillo";
 
-        texto.innerHTML =
-            "Se detectan condiciones que " +
-            "podrían requerir atención. " +
-            "Revisá el pronóstico antes de " +
-            "realizar actividades al aire libre.";
+estado.innerHTML =
+"🟡 ● Posibilidad de lluvia";
 
-    }
+texto.innerHTML =
 
-    else if (
-        probabilidad >= 50
-    ) {
+"Existe una probabilidad considerable " +
+"de precipitaciones durante el día.";
 
-        alerta.className =
-            "amarillo";
+}
 
+else {
 
-        alerta.innerHTML =
-            "🟡 ● Posibilidad de lluvia.";
+estado.className =
+"verde";
 
-        texto.innerHTML =
-            "Existe una probabilidad considerable " +
-            "de precipitaciones durante el día.";
+estado.innerHTML =
+"🟢 ● Sin alertas importantes";
 
-    }
+texto.innerHTML =
 
-    else {
+"Las condiciones meteorológicas " +
+"actuales no presentan alertas importantes.";
 
-        alerta.className =
-            "verde";
-
-
-        alerta.innerHTML =
-            "🟢 ● Sin alertas importantes.";
-
-        texto.innerHTML =
-            "Las condiciones meteorológicas " +
-            "actuales no presentan alertas " +
-            "importantes.";
-
-    }
+}
 
 }
 
 
-/* ==================================================
+/* =========================
    CARGA INICIAL
-================================================== */
+========================= */
 
 window.onload = function() {
 
-    let cuenta =
-        JSON.parse(
-            localStorage.getItem(
-                "cuentaAIRA"
-            )
-        );
+let datos =
+localStorage.getItem("cuentaAIRA");
 
 
-    if (
-        cuenta &&
-        cuenta.ubicacion !== ""
-    ) {
+if(datos) {
 
-        document
-            .getElementById(
-                "ciudad"
-            )
-            .value =
-            cuenta.ubicacion;
+let cuenta =
+JSON.parse(datos);
 
-    }
+
+if(cuenta.ubicacion) {
+
+document.getElementById(
+"ciudad"
+).value =
+cuenta.ubicacion;
+
+}
+
+}
 
 };
 
